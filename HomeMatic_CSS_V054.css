@@ -1,0 +1,1395 @@
+@-moz-document url-prefix("http://192.168.178.23/"), url-prefix("http://192.168.178.23/logout"), url-prefix("http://192.168.178.23/login") {
+/* Changelog:
+V0.54
+    * Layout (Programme) für Ausdrucke angepaßt
+    * Geräte Einstellungen überarbeitet
+
+V0.53:
+	* Fehlermeldung beim Import beseitigt (Stylus 1.5.2)
+
+V0.52:
+    * Logout / Login-Seiten überarbeitet
+
+V0.51:
+	* Lade-Animationen durch SVG-Animation ersetzt
+	* Dialog für Addons ist nun scrollbar
+	* Tabelle System-Variablen-Status korrigiert
+
+V0.5:
+	* Dialoge angepaßt:
+		- "Zeitmodul einstellen"
+		- "Sicherheit"
+		- "Netzwerkeinstellungen"
+		- "Firewall"
+		- "Zusatzsoftware"
+		- "Kopplungen"
+		- "Tabellen" der Kategorien mit dynamischen Layout erweitert (geht nur Zeilenweise)
+	* Hintergrund-Bild: Base64 durch optmiertes SVG ersetzt (ca. -20kb)
+
+V0.4:
+	* Angefangen Farben und Werte in CSS-Variablen zu defninieren (einfachere Anpassung)
+	* Dialog für "Geräte anlernen" überarbeitet
+	* Tabellen der Einstellungen überarbeitet (noch nicht vollständig)
+
+ToDo:
+	* Korrektur der "fehlenden" Buttons in manchen Dialogen
+	* Korrektur Dimmer/RGB-Control
+	* Alle Farben, Radien u.ä. ale Variablen festlegen
+	* Restliche Tabellen anpassen
+	* Dialoge anpassen
+	* Buttons optimieren
+	* LEDs: Grafik durch CSS ersetzt
+	* optischer "Feinschliff" der Tabellen
+	* Optimierung der Definitionen
+    * Addon
+
+*/
+
+/* Variablen für einfache Änderungen des Stils*/
+:root {
+	/* ================================================================================== buttons select rsw.
+	linear-gradient( to bottom, var(--dark_00), var(--dark_01))  */
+  	--dark_00: #313539; 	/* var(--dark_00) */
+  	--dark_01: #484e55; 	/* var(--dark_01) */
+
+	/* ================================================================================= buttons hover
+	linear-gradient( to bottom, var(--dark_02), var(--dark_03)) */
+	--dark_02: #141618;		/* var(--dark_02) */
+	--dark_03: #32363c;		/* var(--dark_03) */
+
+	/* ================================================================================== control-button-info
+	linear-gradient( to bottom, var(--dark_00), var(--dark_04)) */
+	--dark_04: #7a7b7a;		/* var(--dark_04) */
+
+
+	/* =================================================================================
+	linear-gradient( to bottom, var(--light_01), var(--light_00))  */
+  	--light_01: #c2c2c2; 	/* var(--light_00) */
+  	--light_00: #e5e5e5; 	/* var(--light_01) */
+
+	/* ================================================================================== */
+	--dark_05: #2e3338; 	/* var(--dark_05) slected cells, background dialog */
+	--dialog_title: #3e444c; /* var(--dialog_title) dialog title footer */
+
+
+	/* =================================================================================
+	buttons / input / select  */
+	--border_dark:  #2f2f2f;  /* var(--border_dark) */
+	--border_focus: rgb(0, 255, 141);  /* var(--border_focus) */
+
+	--border_ok:  rgb(0, 255, 141);  /* var(--border_ok) */
+	--border_alarm:  rgb(255, 0, 0);  /* var(--border_alarm) */
+
+	--hover_color: rgba(0, 255, 141, .6); /* var(--hover_color) */
+	--selected_color: rgba(0, 255, 141, .6); /* var(--selected_color) */
+	--pushed_color_shadow: rgba(0, 255, 141, .6); /* var(--pushed_color_shadow) */
+
+	/* =================================================================================
+	oberfläche */
+	--transparent_dark: rgba(46, 51, 56, .7); /* var(--transparent_dark) */
+
+	--bg_dark: #272b30; 	/* var(--bg_dark) */
+	--bg_medium: #3e444c; 	/* var(--bg_medium) */
+	--bg_light: #eee; 		/* var(--bg_light) */
+
+	/* =================================================================================
+	schrift */
+	--color_light: #ccc;		/* var(--color_light) */
+	--color_dark: #333;	  	/* var(--color_dark) */
+
+	/* =================================================================================
+	schatten */
+	--footer_shadow-x: 0px; /* var(--footer_shadow-x) */
+	--footer_shadow-y: -5px; /* var(--footer_shadow-y) */
+	--footer_shadow-blur: 10px; /* var(--footer_shadow-blur) */
+	--footer_shadow_color: rgba(0, 0, 0, .5); /* var(--footer_shadow_color) */
+
+	/* tabellen, menü, filter dialog var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color) */
+	--table_shadow-x: 5px; /* var(--table_shadow-x) */
+	--table_shadow-y: 5px; /* var(--table_shadow-y) */
+	--table_shadow-blur: 20px; /* var(--table_shadow-blur) */
+	--table_shadow_color: rgba(0, 0, 0, .4); /* var(--table_shadow_color) */
+
+	/* ===================================================================================
+	menue */
+
+}
+
+/* Einfache Druckansicht (+ In FF Hintergrund / Bilder nicht drucken auswählen) */
+@media print {
+    *{
+    background-color: white !important;
+    color: black !important;
+    background-image: none !important;
+    box-shadow: none !important;}
+    #header, #menubar, #footer {display: none}
+    #content {height: 100% !important; width: 90%}
+}
+
+
+/* Hintergrund abdunkeln für Dialoge */
+    #ChannelConfigDialogLayer,
+	#DeviceConfigDialogLayer,
+	.YesNoDialogLayer,
+	#trlayer,
+	#trlayer2,
+	.DialogLayer {
+		background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%) !important;
+		background-size: 0% 0%;}
+
+}
+
+@-moz-document url-prefix("http://192.168.178.23/"), url-prefix("http://192.168.178.23/logout"), url-prefix("http://192.168.178.23/login") {
+*:hover {} /* hover-Effekte entfernen */
+*{ hyphens: auto !important; word-wrap: break-word !important; overflow-wrap: break-word !important;} /* Sprache fehlt in HTML :( */
+html { background-color: var(--dark_05) !important }
+
+/* form styling - based on Bootstrap V4.1*/
+select{
+	display: inline-block;
+	width: 100% !important;
+	height: calc(2.25em + 2px !important);
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	line-height: 1.5 !important;
+	color: #ddd !important;
+	vertical-align: middle !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00)) !important;
+	border: 1px solid var(--border_dark) !important;
+	border-radius: 0.25rem !important;
+	margin: 0.25em !important;
+}
+
+/* Select Breite auto */
+#ProgramTable .SelectBox, #ptpSel {
+	display: inline-block;
+	width: auto !important;
+	height: calc(2.25em + 2px !important);
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	line-height: 1.5 !important;
+	color: #ddd !important;
+	vertical-align: middle !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00)) !important;
+	border: 1px solid var(--border_dark) !important;
+	border-radius: 0.25rem !important;
+	margin: 0.25em !important;
+}
+
+/* style entfernen */
+
+select[style] {display: inline-block;
+	width: auto !important;
+	height: calc(2.25em + 2px !important);
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	line-height: 1.5 !important;
+	color: #ddd !important;
+	vertical-align: middle !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00)) !important;
+	border: 1px solid var(--border_dark) !important;
+	border-radius: 0.25rem !important;
+	margin: 0.25em !important; }
+
+/*
+#text_log_server,
+#text_key1,
+#text_key2,
+#text_hour,
+#text_minute,
+#text_second,
+#text_day,
+#text_month,
+#text_year,
+#text_ntp_servers,
+#text_lon,
+#text_lat,
+#text_hostname,
+#text_ip,
+#text_mask,
+#text_gw,
+#text_dns1,
+#text_dns2,*/
+input[id^="text_"],
+#sshPasswd0,
+#sshPasswd1,
+#snmpPasswd0,
+#snmpPasswd1,
+#Password, /* login */
+input[id^="notassignedColor"],
+/*input[type=text],*/
+input[id="text_serial"],
+input[id$="_tmp"]{
+	display: inline-block !important;
+	width: auto !important;
+	height: calc(2.25em + 2px !important);
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	line-height: 1.5 !important;
+	color: black !important;
+	text-align:center !important;
+	vertical-align: middle !important;
+	background: linear-gradient(to bottom,  var(--light_01), var(--light_00));
+	border: 1px solid var(--border_dark)!important;
+	border-radius: 0.25rem !important;
+	margin: 0.25em !important;
+}
+
+input[type=text] {
+	display: inline-block !important;
+	width: auto !important;
+	height: calc(2.25em + 2px !important);
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	line-height: 1.5 !important;
+	color: black !important;
+	vertical-align: middle !important;
+	background: linear-gradient(to bottom,  var(--light_01), var(--light_00));
+	border: 1px solid var(--border_dark)!important;
+	border-radius: 0.25rem !important;
+	margin: 0.25em !important;
+}
+.CLASS02525b,
+.CLASS02557,
+.ControlBtnInfo {
+	display: inline-block !important;
+	/*width: auto !important;*/
+	height: calc(2.25em + 2px !important);
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	color: black !important;
+	vertical-align: middle !important;
+	background: linear-gradient(to bottom,  var(--light_01), var(--light_00));
+	border: 1px solid var(--border_dark)!important;
+	border-radius: 0.25rem !important;
+	margin: 0.25em !important;
+	font-style: normal !important;
+}
+.ControlBtnInfo td { color: black !important; font-weight: normal !important; }
+.CLASS02538 { width: 20em !important} /* Sys-Variablen aktueller Wert*/
+
+.CLASS02525b,
+.CLASS02557 { height: auto;}
+.CLASS02525b,
+.CLASS02557 td {color: black !important}
+
+.CLASS02525b { box-shadow: 0px 0px 15px var(--border_ok)}
+/*
+.CLASS02557 { box-shadow: 0px 0px 15px var(--border_alarm)}
+*/
+
+#text_key1:focus,
+#text_key2:focus,
+#sshPasswd0:focus,
+#sshPasswd1:focus,
+#snmpPasswd0:focus,
+#snmpPasswd1:focus,
+#text_log_server:focus,
+input[type=text]:focus,
+input[id="text_serial"]:focus,
+input[id$="_tmp"]:focus,
+#Password:focus /* login */
+{ border: 1px var(--border_focus) solid !important }
+
+input[type=text][disabled=disabled] { opacity: 0.6 }
+
+input[name="P1_temp"], input[id="global_address"], input[id="global_iface"] {display: none !important} /* temporäre Temperatur inputs - Thermostate ... */
+}
+
+@-moz-document url-prefix("http://192.168.178.23/"), url-prefix("http://192.168.178.23/logout"), url-prefix("http://192.168.178.23/login") {
+.DeviceListCell_Invisible, .DeviceListFoot  {
+	background-color: var(--transparent_dark) !important;
+}
+
+img {
+	filter: blur(0.5px) /* Bilder leicht glätten */
+}
+
+/* ladekringel */
+img[src="/ise/img/loading.gif"], img[src="/ise/img/ajaxload.gif"] {padding-left: 200000px; background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' stroke='%23fff'%3E%3Cg fill='none' fill-rule='evenodd' stroke-width='2'%3E%3Ccircle cx='22' cy='22' r='1'%3E%3Canimate attributeName='r' begin='0s' calcMode='spline' dur='1.8s' keySplines='0.165, 0.84, 0.44, 1' keyTimes='0; 1' repeatCount='indefinite' values='1; 20'/%3E%3Canimate attributeName='stroke-opacity' begin='0s' calcMode='spline' dur='1.8s' keySplines='0.3, 0.61, 0.355, 1' keyTimes='0; 1' repeatCount='indefinite' values='1; 0'/%3E%3C/circle%3E%3Ccircle cx='22' cy='22' r='1'%3E%3Canimate attributeName='r' begin='-0.9s' calcMode='spline' dur='1.8s' keySplines='0.165, 0.84, 0.44, 1' keyTimes='0; 1' repeatCount='indefinite' values='1; 20'/%3E%3Canimate attributeName='stroke-opacity' begin='-0.9s' calcMode='spline' dur='1.8s' keySplines='0.3, 0.61, 0.355, 1' keyTimes='0; 1' repeatCount='indefinite' values='1; 0'/%3E%3C/circle%3E%3C/g%3E%3C/svg%3E");  background-repeat: no-repeat;
+}
+.CLASS11101{ min-width: 30em} /* navigation */
+
+/* Vorläufig - das Orginal Bild muss noch weg ... */
+/* "LEDs" Source: http://cssdeck.com/labs/css-leds */
+.CLASS11106 { width:12px !important; height:12px !important}
+
+.CLASS11106 img[src="/ise/img/dot/grey.png"] {
+    background: hsl(80, 0%, 30%) !important;
+    box-shadow: #000 0 -1px 7px 1px, inset #6c6c6c 0 -1px 9px}
+.CLASS11106 img[src="/ise/img/dot/green.png"] {
+    background: #690 !important;
+    box-shadow: #000 0 -1px 7px 1px, inset #460 0 -1px 9px, #7D0 0 2px 12px !important;}
+.CLASS11106 img[src="/ise/img/dot/red.png"] {
+    background-color: #940;
+	box-shadow: #000 0 -1px 7px 1px, inset #600 0 -1px 9px, #F00 0 2px 12px;}
+.CLASS11106 img[src="/ise/img/dot/yellow.png"] {
+    background-color: #A90;
+    box-shadow: #000 0 -1px 7px 1px, inset #660 0 -1px 9px, #DD0 0 2px 12px;}
+
+ img[src^="/ise/img/dot/"]{ margin-right: 10px !important;
+    width: 12px;
+    height: 12px;
+	border-radius: 50%;}
+
+
+/*  Vorläufig */
+.ButtonStatusRoomsPicSelected{ border: 2px var(--bg_medium) solid !important; }
+
+td { padding: 0.25em !important}
+
+.filterTable td { height: auto !important}
+.CLASS05211 {white-space: nowrap !important} /* checkbox + text */
+/* Alarm, Rauchmelder, Vorschau, Geräteliste ---------------------------------------------------------------------- */
+
+/* geräte */
+div[id$="Thumbnail"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1),
+div[id$="Thumbnail"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(2),
+div[id^="picDiv"] > div:nth-child(1) > div:nth-child(1),
+div[id^="picDiv"] > div:nth-child(1) > div:nth-child(2),
+/* firmware */
+div[id^="pic"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1),
+div[id^="pic"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)
+{background-color: transparent !important}
+
+/* sw -> multiplay blend = nur schwarz */
+img[id$="checkItem"], img[id$="dangerItem"], img[src$="_thumb.png"]{
+	mix-blend-mode: multiply !important;
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+
+/*  Diagramme - Hintergrund (Gitter)*/
+.jqplot-grid-canvas {
+	opacity: 0.3;
+}
+
+/* Tabelle: Seriennummer */
+.tBodyCell[data-bind="text: serialNumber"] {text-align:center !important}
+
+#tblStartpageInfo td {
+	color: #ddd;
+	padding: 5px;
+	border-bottom: solid 1px
+}
+
+/* fusszeile */
+#footer table {
+	border-spacing: 0px !important;
+}
+
+/* unsichtbar */
+.ctrlTbl,
+.tblfav,
+.CLASS01806,
+.CLASS02510,
+.CLASS02519,
+.ctrlTbl td,
+#tblListFold,
+.DeviceListRow,
+#DeviceListTable{
+	background-color: transparent !important
+}
+
+.CLASS05501 {display: none !important}
+
+/* helle Schrift */
+.CLASS05104, /* Zeitmodul einstellen */
+.CLASS03502 /*  letzte Änderung */
+{ color: var(--color_light) !important}
+
+/* scrollen in Dialogen */
+.CLASS20815, .CLASS20918, .CLASS21114, .CLASS21200, .CLASS05103, .CLASS21406 {
+	max-height: 600px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/* gradient oben -> unten */
+.CLASS01806,
+.CLASS01807 {
+	border: 0px !important
+}
+#navbar,
+#header,
+#footer,
+#PagePath{
+	background: linear-gradient( to bottom, var(--dark_01) , var(--dark_00) );
+}
+
+#PagePath{ white-space: nowrap; }
+
+body {
+	background: var(--bg_dark) !important
+}
+
+/* raender --------------------------------------------------- */
+#menubar {
+	border-bottom: 0px;
+}
+#footer {
+	border-top: 0px;
+	box-shadow: var(--footer_shadow-x) var(--footer_shadow-y) var(--footer_shadow-blur) var(--footer_shadow_color);
+}
+#contentRight {
+	border-left: 0px
+}
+
+/* Grafiken verstecken */
+ #divDL {overflow-x: hidden !important; }
+
+
+/* ------------------------------------------------------------ */
+
+/* uebersicht */
+.CLASS02519 table[style]{
+	margin: auto !important;
+	border-spacing: 10px;
+}
+
+/* tabellen --------------------------------------------------- */
+#tblHDeviChannel,
+#tblFunctionNames,
+.StatViewTbl,
+.tblList,
+.tTable,
+.tMain,
+.sysConfigHeight,
+.filterTable,
+#tblStartpageInfo,
+.CLASS01803,
+.CLASS21305,
+.CLASS21301,
+.CLASS01812,
+#sysvarsListTable,
+#DeviceListTable {
+	background-color: var(--transparent_dark) !important;
+	box-shadow: var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color) !important;
+	border: 0px !important;
+}
+
+
+.CLASS04100,
+.CLASS04200,
+.tTable,
+#sysvarsListTable{
+	width:95%;
+	margin: 10px  auto  10px  auto;
+}
+
+.CLASS03910 {
+	border: 0px !important
+}
+
+
+
+#devFwOverview td {
+	background-color: var(--bg_light)
+}
+
+#ic_deviceparameters,
+.parameter_area,
+.parameters_table tbody {
+	background-color:  var(--bg_medium) !important;
+	color: var(--color_light) !important;
+}
+
+/* startseite, rechts */
+.CLASS01809 {
+	width: 43% !important;
+	margin: auto;
+	padding: 10px;
+	overflow: auto
+}
+#contentRight {
+	border-left: 10px !important;
+}
+#tblRightContent {
+	margin: auto !important
+}
+
+#divRTD {
+	height: 100% !important
+}
+
+.CLASS03902,
+.CLASS04001 table {
+	width: 270px !important
+}
+
+/* linke Spalte */
+#divRL {
+	padding: 10px;
+}
+.CLASS04006 {
+	margin-top: 0px
+}
+
+
+td,
+th {
+	border-color: var(--border_dark) !important;
+	border-collapse: collapse
+}
+.filterTable th:first-of-type,
+.CLASS04101 tr {
+	height: 4em !important;
+	vertical-align: middle;
+}
+.filterTable th.Filter,
+.CLASS04103,
+.CLASS04103 td[style],
+.CLASS04104,
+.CLASS04109 {
+	height: auto !important
+}
+
+.CLASS22001, .CLASS22004, /* keine Paramter */
+tr[id^="r"], tr[id^="r"] > td:nth-child(1) {background: transparent !important}
+
+/* ------------------------------------------------------------ */
+
+/* info -------------------------------------------------------------------- */
+#overviewHelpPage {
+	width: 100% !important;
+	empty-cells: hide;
+}
+.CLASS21301,
+.CLASS21305 {
+	width: 50% !important;
+	color: var(--color_light)
+}
+.CLASS21301 li:first-of-type,
+.CLASS21305 li:first-of-type {
+	background-color: var(--bg_medium);
+	padding: 3px;
+	font-size: large !important
+}
+h1 b,
+h1 u {
+	font-size: large !important;
+}
+.CLASS21301 ul,
+.CLASS21305 ul {
+	padding: 0% !important;
+}
+
+/* ------------------------------------------------------------------------- */
+#anchor_1359, .GrayBkg, td[id^="dpc"], .DeviceListHead_Active ,
+.CLASS05104, .CLASS05108 /* Zeitmodul einstellen */
+{
+	background-color: var(--bg_dark) !important;
+	Color: var(--color_light) !important;
+	padding: 3px !important;
+}
+
+.CLASS05206, .CLASS05209, .WhiteBkg,.DeviceListCell, .DeviceListThumbnail, .tCell, .CLASS06405 {
+	Color:  var(--color_dark) !important;
+	background-color: var(--bg_light) !important;
+	padding: 3px;
+	border: 1px solid var(--border_dark);
+}
+
+#tblStatus td {
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+}
+
+#tblStatus,
+.StdTable {
+	height: auto
+}
+.sysConfigHeight {
+	height: auto;
+	max-width: 250px !important;
+}
+.CLASS21700 {height:auto !important} /* sytemsteuerung: erste tr */
+
+/* Fexible Anordnung der TDs - begrenzt auf TR*/
+/* Systemsteuerung ---------------------------------------------------------------------------*/
+#mainTable { display: flex !important; empty-cells: hide; margin: auto !important; }
+#mainTable  tr {display: flex !important;  flex-direction: row; flex-wrap: wrap; margin: auto !important; justify-content: left; align-content: flex-start !important;}
+._CLASS21702 {display: none}
+#mainTable  td { min-width: 290px; height: 80px !important; margin: 5px !important;}
+/*--------------------------------------------------------------------------------------------*/
+.StdTable { display: flex !important; empty-cells: hide; margin: auto !important; }
+.StdTable  tr {display: flex !important;  flex-direction: row; flex-wrap: wrap; margin: auto !important; justify-content: left; align-content: flex-start !important;; 	}
+.StdTable   td { margin: 5px !important; flex-grow:1}
+
+.CLASS05401, .CLASS05400 {height: auto !important} /* Programme und Verknüpfungen */
+
+/* Status und Bedienung -------------------------- */
+#tblStatus .CLASS05700 {width: auto; display: flex !important; empty-cells: hide; margin: auto !important;}
+#tblStatus .CLASS05700 tr {display: flex !important;  flex-direction: row; flex-wrap: wrap; margin: auto !important; justify-content: space-around; align-content: flex-start !important}
+#tblStatus td {max-width: 250px !important; flex-grow:1  !important }
+
+.CLASS05500{ height: auto !important}
+
+/* -------------------------------------------------------------------------------------------------- */
+
+.cpButton, #mainTable .StdTableBtnHelp {width: 100% !important}
+#mainTable td {
+	height: auto;
+	background-color: var(--transparent_dark) !important;
+	box-shadow: var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color);
+	padding: 5px;
+}
+
+/* */
+.StdTable td {
+	background-color: var(--transparent_dark) !important;
+	height: auto !important;
+	padding: 3px;
+	empty-cells: hide;
+}
+.StdTable td td {
+	background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.ProfileTbl td:first-of-type {width: 200px !important}
+
+/* Systemprotokoll */
+#SysProtoList tr:nth-child(even) td {background-color: var(--bg_light) !important; color: black !important}
+#SysProtoList tr:nth-child(odd) td {background-color: var(--light_00) !important;  color: black !important}
+
+/* device-info */
+.ProfileTbl {
+	background-color: var(--bg_dark) !important
+}
+#DeviceInformation {
+	width: 100% !important;
+}
+.CLASS22000 {
+	box-shadow: var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color);
+}
+#DeviceInformation col {
+	width: auto !important;
+}
+#ic_deviceparameters thead td {
+	background-color: var(--bg_medium)!important;
+}
+.parameter_area {
+	background-color: var(--bg_medium)!important;
+}
+#id_device_parameters_table,
+#parameter_header {
+	width: 100% !important
+}
+.CLASS10400 {
+	height: 2px;
+	border-style: solid;
+}
+
+/* hr */
+.CLASS21000 {
+	width: 117px !important;
+	height: 30px;
+}
+
+/* button */
+.CLASS22003,
+.ProfileTbl tbody tr td,
+.TimeoutTable tbody tr td,
+.TimeoutTable,
+.CLASS21409, .CLASS21410,  /* zusatzsoftware */
+.popupControls,
+#id_channel_parameters_table {
+	background-color: var(--bg_dark) !important;
+	color: var(--color_light)
+}
+.j_dstValue {
+	border-left: solid 10px var(--bg_medium);
+}
+
+.TimeoutTable td {
+	width: 200px;
+	empty-cells: hide !important
+}
+
+/* */
+.CLASS02532,
+.CLASS04900,
+.CLASS01807,
+.CLASS03304,
+.CLASS03302,
+.CLASS03303,
+.CLASS03501,
+.CLASS02511,
+.CLASS01807,
+.CLASS03801,
+.CLASS04207,
+.CLASS04101,
+.CLASS04102,
+.CLASS04206,
+.CLASS20903,
+.CLASS20807,
+.CLASS21503,
+.CLASS21408,
+.CLASS05205,
+.CLASS05202,
+.CLASS21116,
+.CLASS21207, .CLASS21212, /* geräte anlernen */
+.Sort,
+.filterTable th,
+.thCell,
+#menubarmenu #header,
+#footer {
+	background-color: var(--bg_medium) !important;
+	border: var(--border_dark);
+	Color: var(--bg_light);
+}
+.SortSelected {
+	background-color: var(--bg_dark)
+}
+
+#tblFunctionList tr:hover {
+	background-color: rgba(46, 51, 56, .3) !important;
+}
+#ic_deviceparameters,
+#id_body {
+	margin: 10px;
+	background-color: transparent !important;
+}
+#tblFunctionList {
+	box-shadow: var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color);
+}
+
+.UIFrame {
+	background-color: transparent !important;
+	left: 420px !important
+}
+
+.DeviceListHead {
+	background-color: var(--bg_medium) !important;
+	font-weight: normal;
+}
+
+.TblUserAdministration {
+	background-color: var(--bg_light);
+}
+
+/*.UIButton, */
+
+
+.FilterSetButton,
+.CLASS21412,
+#TestButtonCH2104,
+#ToggleButtonChannelView,
+#btnStartScanGateway_lightify,
+#btnStartScanGateway_hue,
+input[type=button] {
+	display: inline-block !important;
+	width: 100% !important;
+	height: calc(2.25em + 2px) !important;
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	color: var(--color_light) !important;
+	vertical-align: middle !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00)) !important;
+	border: 1px var(--border_dark) solid  !important;
+	border-radius: 0.25em !important;
+	font-weight: normal !important;
+	margin: 0.25em !important;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+/* Höhe auto, Weite 70%*/
+
+.CLASS21210, /* Geräte anlernen */
+.StdTableBtn{
+	display: inline-block !important;
+	width: 70% !important;
+	height: auto !important;
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	color: var(--color_light) !important;
+	vertical-align: middle !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00)) !important;
+	border: 1px var(--border_dark) solid !important;
+	border-radius: 0.25em !important;
+	font-weight: normal !important;
+	margin: 0.25em !important;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+
+/* button normal 70%, Zeilen-Höhe 1em*/
+
+.CLASS21412, /* Zusatzsoftware installieren */
+.CLASS21215,
+.FilterSetButton ,
+.FilterButton,
+.StdButton  {
+	display: inline-block !important;
+	width: 70% !important;
+	height: auto !important;
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	line-height: 1!important;
+	color: var(--color_light) !important;
+	vertical-align: middle !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00) ) !important;
+	border: 1px var(--border_dark) solid !important;
+	border-radius: 0.25em !important;
+	font-weight: normal !important;
+	margin: 0.25em !important;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer !important;
+}
+/* script testen */
+/*.UIFrame { height: 515px !important}*/
+/*.UIFrameContent{ height: 490px !important}*/
+.UIFrameContent div.UIButton:nth-child(5) {left: 10px !important}
+.UIFrameContent textarea.UITextArea:nth-child(2) {padding: 5px; height: 190px !important; width: 580px !important}
+.UIFrameContent textarea.UITextArea:nth-child(4) {padding: 5px; height: 190px !important; width: 580px !important; background-color: var(--bg_light)}
+.UITextArea {border: 1px var(--border_dark); border-radius: 3px}
+/* ----------------------------------------------------------------------- */
+
+
+/* button small */
+#DeviceConfigDialogAbortButton,
+#DeviceConfigDialogOkButton,
+#ChannelConfigDialogAbortButton,
+#ChannelConfigDialogOkButton,
+#btnLogNew, /* logout */
+div[id^="btn-user"], #btnLogin, /* login */
+.CLASS21404, /* Zusatzsoftware */
+.CLASS21117, /* Zertifikat erstellen */
+.CLASS21509,
+.CLASS21507,
+.CLASS20804,
+.CLASS20813,
+.CLASS20919,
+.CLASS20908,
+.CLASS20910,
+.CLASS21108,
+.StdButtonBig,
+.YesNoDialog_noButton,
+.Messages,
+.NavButton {
+	display: inline-block !important;
+	max-width: 100% !important;
+	height: auto !important;
+	padding: 0.375rem 1.75rem 0.375rem 0.75rem !important;
+	color: var(--color_light) !important;
+	vertical-align: middle !important;
+	line-height: 1.5 !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00) ) !important;
+	border: 1px var(--border_dark) solid  !important;
+	border-radius: 0.25em !important;
+	font-weight: normal !important;
+	margin: 0.25em !important;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+/* button auto */
+
+.CLASS20818,
+input[type=file],
+#cp_new_devices_button, .CLASS21213 ,
+.FooterButton,
+
+.CLASS21000 {
+	display: inline-block !important;
+	max-width: 100% !important;
+	height: auto !important;
+	padding: 0.25rem 1rem 0.25rem 1rem !important;
+	color: var(--color_light) !important;
+	vertical-align: middle !important;
+	text-align: center !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00) ) !important;
+	border:  1px  var(--border_dark) solid !important;
+	border-radius: 0.25em !important;
+	font-weight: normal !important;
+	margin: 0.25em !important;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+
+.DeviceListButton {
+	display: inline-block !important;
+	max-width: 100% !important;
+	height: auto !important;
+	color: var(--color_light) !important;
+	vertical-align: middle !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00) ) !important;
+	border:  1px  var(--border_dark) solid !important;
+	border-radius: 0.25em !important;
+	font-weight: normal !important;
+	margin: 0.25em !important;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+
+.ControlBtnOff {
+	display: inline-block !important;
+	width: 100% !important;
+	height: auto !important;
+	color: var(--color_light) !important;
+	vertical-align: middle !important;
+	background: linear-gradient( to bottom, var(--dark_01), var(--dark_00) ) !important;
+	border:  1px  var(--border_dark) solid !important;
+	border-radius: 0.25em !important;
+	font-weight: normal !important;
+	margin: 0.25em !important;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	 align-self: center
+}
+
+.ControlBtnOn,
+.ControlBtnPushed {
+	box-shadow: 0px 0px 15px 0px var(--pushed_color_shadow);
+	background: linear-gradient( to bottom, var(--dark_02), var(--dark_03)) !important;
+	display: inline-block !important;
+	width: 100% !important;
+	height: inherit !important;
+	color: var(--color_light) !important;
+	vertical-align: middle !important;
+	text-align: center !important;
+	border:  1px  var(--border_dark) solid!important;
+	border-radius: 0.25em !important;
+	font-weight: normal !important;
+	margin: 0.25em !important;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+
+
+/* button hinter Thermostat up /down*/
+.CLASS02530,
+.CLASS02529 div[id^="button"] {
+	background-color: transparent !important;
+	border: 0px;
+	height: auto;
+	width: auto;
+	margin: auto
+}
+
+/* Vorläufig: Up/Down/Enter */
+.CLASS02548 {background: linear-gradient( to bottom, var(--dark_01), var(--dark_00) ) !important;}
+.CLASS02543 { border: 1px solid var(--border_dark) !important;  mix-blend-mode: multiply; padding: 3px; border-radius: 0.25em; margin: 3px}
+.CLASS02543:hover {box-shadow: 0px 0px 15px 0px var(--hover_color); background: linear-gradient( to bottom, var(--dark_02), var(--dark_03) ) !important; mix-blend-mode: lighten;}
+/* ---------------------------------------------------------------------------------- */
+
+
+#btnFwDownload {
+	display: none !important;
+	height: 0px;
+}
+.CLASS11105 {
+	padding: 0px !important;
+}
+#AlarmServiceMsg td {
+	padding: 0px !important;
+}
+
+
+/* test Button */
+div[id^="TestButtonCH"] {
+	height: 20px !important
+}
+.OkButton {
+	height: 20px;
+	width: 85%;
+	margin: auto;
+	border-radius: 5px;
+	background: linear-gradient( to bottom, #3b6347, #00ff0a) !important;
+}
+.TestDate {
+	height: 20px;
+	margin: 0px !important
+}
+
+div.UIButton:nth-child(22) { left: 10px !important} /* firewall abbrechen */
+
+
+div.UIButton:nth-child(11), div.UIButton:nth-child(10) { background-color: transparent !important; border: 0px; top: 360px !important; height: 50px !important}
+.UIButton  { background-color: transparent !important; border: 0px; height: 30px !important; width: 30% !important; left: 35% !important}
+
+.FilterBtn,
+.FilterCaption,
+.Filter,
+.CLASS03501,
+.CLASS03601,
+.CLASS03801,
+.CLASS03706,
+.CLASS03006,
+.CLASS03304,
+.CLASS10901,
+.CLASS04104,
+.CLASS04206,
+.CLASS05205,
+.CLASS05202,
+.CLASS06408,
+.CLASS04109,
+.CLASS04211 {
+	background: linear-gradient(to bottom, var(--light_00), var(--light_01) ) !important;
+	border: 0px !important;
+}
+.CLASS00203,
+.CLASS06405 {
+	border: 0px !important
+}
+.CLASS04902 {
+	width: 230px
+}
+
+.StdButtonInactive {
+	border-radius: 3px !important;
+}
+
+/* formulare */
+
+/* checkbox */
+.CLASS04904 {
+	display: block !important
+}
+
+/* menu --------------------------------------- */
+.CLASS11100,
+.CLASS11101,
+.CLASS11104,
+.CLASS11105,
+#menubar,
+.MainMenuItem_Left,
+.MainMenuItem_Right {
+	background-color: transparent
+}
+/*
+.ControlBtnInfo {
+	background-color: var(--bg_light);
+	font-weight: normal !important;
+	border: 1px var(--border_dark) solid  !important;
+	border-radius: 5px;
+	background: linear-gradient( to bottom, var(--light_01), var(--light_00))!important;
+} */
+.ButtonStatusRoomsSelected {
+	background-color: var(--dark_05);
+	border: 0px
+}
+.tHeaderCellSortSelected {
+	background-color: var(--dark_05);
+	border: 0px
+}
+
+/* .UIButton:hover, */
+#btnLogNew:hover, /* logout */
+div[id^="btn-user"]:hover, #btnLogin:hover, /* login */
+#cp_new_devices_button:hover, .CLASS21213:hover , .CLASS21215:hover,
+.DeviceListButton:hover,
+.StdButton:hover,
+.StdButtonBig:hover,
+.NavButton:hover,
+.FooterButton:hover,
+.StdTableBtn:hover,
+.Messages:hover,
+.FilterButton:hover,
+.FilterSetButton:hover,
+.CLASS21507:hover,
+.CLASS21108:hover,
+.CLASS20908:hover,
+.CLASS20919:hover,
+.CLASS20910:hover,
+.CLASS20813:hover,
+.CLASS20818:hover,
+.CLASS20804:hover,
+.CLASS21509:hover,
+.CLASS21404:hover,
+.CLASS21412:hover,
+.ControlBtnOff:hover,
+.CLASS21210:hover, /* Geräte anlernen */
+#TestButtonCH2104:hover,
+#ToggleButtonChannelView:hover,
+#btnStartScanGateway_lightify:hover,
+#btnStartScanGateway_hue:hover,
+input[type=button]:hover,
+input[type=file]:hover {
+	box-shadow: inset 0 0 15px 0 var(--selected_color) !important;
+	background: linear-gradient( to bottom, var(--dark_02), var(--dark_03)) !important;
+	transition: all 0.3s ease !important;
+	cursor: pointer !important;
+}
+
+
+/*
+.FilterCaption:hover,
+*/
+
+/* programm */
+.Rule {
+	border-color: transparent;
+}
+.Condition {border: 1px solid var(--bg_medium); border-radius: 5px}
+
+.conditionEven {
+	background-color: rgb(167, 255, 132)
+}
+.conditionOdd {
+	background-color: rgb(251, 209, 0)
+}
+.conditionOdd .SelectBox option { color: var(--color_dark) !important }
+.conditionEven .SelectBox option { color: var(--color_dark) !important }
+
+
+/* filter ----------------------------------------------------------------------- */
+.FilterBody,
+.FilterSubMenu {
+	background-color: var(--color_light);
+	border-color: #aaa
+}
+.MainMenuItemCaption {
+	border-radius: 0px;
+	border-color: #3e444c;
+	background: #272b30 !important;
+	border-top-color: #272b30;
+	border-bottom-color: #272b30;
+	border-left-color: #272b30;
+	color: var(--color_light);
+	font-weight: normal;
+}
+.MainMenuSubMenu {
+
+	background-color: #3e444c !important;
+	border: 0px !important;
+	border-radius: 2px !important;
+	box-shadow: var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color) !important;
+}
+.MainMenuSubItem {
+	background-color: #3e444c;
+	border: 0px;
+	color: var(--color_light);
+	font-weight: normal;
+}
+.MainMenuSubItem_Highlight {
+	background-color: #272b30;
+	color: #fff;
+}
+
+/* Filter */
+.FilterSubMenu , .FilterBody {box-shadow: var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color) !important; max-width: 200px !important;  margin: auto !important}
+.CLASS04111, .FilterBodyCell, .CLASS04214, .CLASS05208 td  {background-color: transparent !important; color: var(--color_dark) !important;}
+.CLASS04110, .CLASS05208 {margin: auto !important}
+
+
+
+/* heizkoerperthermostat --------------------------------- */
+[id$=base] {
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODMuNDZtbSIgaGVpZ2h0PSIyNy41Mm1tIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA4My40NTY0NzQgMjcuNTE5MjEzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI0OS43OCIgeDI9IjY2LjQ0IiB5MT0iMTAwLjkiIHkyPSIxMDAuOSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1LjA3IDAgMCA1LjA3IC0yMDMgLTM5OS43KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiMwMGYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiMwMGYwMDAiIHN0b3Atb3BhY2l0eT0iLjk5NjEiIG9mZnNldD0iLjYxNDgiLz48c3RvcCBzdG9wLWNvbG9yPSIjZjAwIiBzdG9wLW9wYWNpdHk9Ii45OTY4IiBvZmZzZXQ9IjEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDkuODggLTk4LjIpIj48cGF0aCBkPSJtNTAuMDUgMTI1LjYgODMuMTItMjcuMTktMC4xMTk4IDI2Ljk1LTgzIDAuMjM5MyIgZmlsbD0idXJsKCNhKSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iLjMyOTYiLz48L2c+PC9zdmc+DQo=') !important;
+	z-index: 10 !important;
+	background-size: 100% 70%;
+	background-repeat: no-repeat;
+	background-position: center
+}
+
+/* bild ausblenden */
+[id$=green] {
+	background-size: 0% 0%;
+}
+
+
+/* slider */
+[id$=slider] {
+	opacity: 0.6;
+	border-radius: 5px
+}
+
+/* DeviceConfigDialog ---------------------------------------*/
+#DeviceConfigDialogContent {
+	top: 32px;
+	width: 800px;
+	background-color: var(--dark_05);
+	color: var(--color_light) !important;
+}
+#DeviceConfigDialog {
+	height: 448px;
+}
+#DeviceConfigDialogOkButton {
+	left: 660px;
+}
+#DeviceConfigDialogAbortButton {
+	left: 10px
+}
+#DeviceConfigDialogFooter {
+	height: 55px
+}
+/* picture */
+.CLASS10801 div div {
+	background-color: transparent !important;
+}
+.CLASS10801 div div img {filter: invert(100%) !important;}
+
+#DeviceConfigDialogTitle {
+	background-color: var(--bg_medium);
+	padding: 5px;
+	font-size: large !important;
+	color: var(--color_light);
+	border-radius: 5px 5px 0px 0px !important;
+	width: 790px !important;
+}
+
+
+/* popup -------------------------------------------------- */
+
+#messagebox {min-width:900px; max-width:1000px !important}
+
+#ChannelConfigDialog,
+#DeviceConfigDialog,
+#id_messagebox_wrapper {
+	box-shadow: var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color);
+	background-color: transparent !important
+}
+
+
+#ChannelConfigDialogOkButton {left: 650px}
+
+.popupTitle {
+	background-color: var(--dialog_title);
+	padding: 5px;
+	font-size: large !important;
+	color: var(--color_light);
+	border-radius: 5px 5px 0px 0px !important;
+	width: auto !important;
+}
+
+#ChannelConfigDialogTitle,
+.UIFrameTitle {
+	background-color: var(--dialog_title);
+	padding: 5px;
+	font-size: large !important;
+	color: var(--color_light);
+	border-radius: 5px 5px 0px 0px !important;
+	width: 100% !important;
+}
+
+.CLASS01807 {
+	font-size: large !important;
+	color: var(--color_light);
+}
+
+.UIFrameContent { top:30px !important; width: inherit !important}
+
+#ChannelConfigDialogFooter,
+.popupControls,
+#DeviceConfigDialogFooter,
+.CLASS10200 {
+	background-color: var(--dialog_title) !important;
+	border-radius: 0px 0px 5px 5px;
+	/* width: 100% !important; */
+}
+
+#ChannelConfigDialogContent,
+.CLASS21114,
+.CLASS21115,
+.CLASS21111,
+.CLASS21112,
+.CLASS21113,
+.CLASS21107,
+.CLASS20806,
+.CLASS20808,
+.CLASS20810,
+.CLASS20817,
+.CLASS20811,
+.CLASS20909,
+.CLASS21205, /* geräte anlernen */
+.CLASS20904,
+.CLASS20905,
+.CLASS21504,
+.CLASS21505,
+.CLASS21506,
+.CLASS21208, /* geräte anlernen */
+.UIFrameContent {
+	background-color:  var(--dark_05) !important;
+	color: var(--color_light) !important;
+}
+
+ .CLASS21206, .CLASS21209 /* geräte anlernen */
+{ background-color: transparent !important}
+
+/* alert */
+.loginErrorBox,
+tr.popupTableRowGray:nth-child(1) > td:nth-child(4),
+.CLASS20816,
+.CLASS20921 {
+	background-color: #f2dede;
+	font-weight: normal !important;
+	color: #a94442 !important;
+    border: #ebcccc 1px solid !important;
+     border-radius: 3px !important
+}
+.CLASS20816::first-line, .CLASS20921::first-line {font-weight: bold !important}
+
+/* info */
+#updateCol /* CCU Firmware-Update */
+{ background-color: #d1ecf1 !important; color: #0c5460 !important; border: #bee5eb 1px solid !important; border-radius: 3px !important}
+
+/* warning */
+div.CLASS05103:nth-child(3) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1), /* Zeitmodul */
+tr.CLASS21407:last-of-type > td:last-of-type, /* Addons */
+.CLASS20917 > td:nth-child(1) /* CCU Firmware-Update */
+{ color: #856404 !important; background-color: #fff3cd !important; border-color: #ffeeba !important; }
+
+/* firmware update info */
+table[id^="id_firmware_table_"] { box-shadow: none !important; background-color: transparent !important; margin-top: 0px;}
+table[id^="id_firmware_table_"] ._CLASS22008 {border-radius: 3px}
+
+td[name="j_actionTD"] .tTable td {
+	color: #31708f !important;
+	background-color: #d9edf7 !important;
+	border: #bce8f1 1px solid !important;
+}
+
+/* pop-up bilder */
+.CLASS10800 {
+	border: 0px;
+	filter: blur(0.6px) grayscale(1);
+}
+
+/* rahmen um Bild */
+.popupTable {
+	background-color: var(--bg_medium);
+	border-collapse: collapse;
+	border: 1px var(--color_dark)  solid !important;
+}
+
+.popupTable tr {
+	border-bottom-color: var(--color_dark) !important;
+	border-bottom: 1px !important
+}
+
+.CLASS21411 {background: transparent !important} /* Zusatzsoftware */
+
+/* login / logout */
+table#LoginMask{
+    font-weight: normal !important;
+    border: 0px;
+    color: var(--color_light) ;
+    background-color: var(--dark_05) !important;
+    box-shadow: var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color);
+}
+
+html body table#maintable tbody tr td#navbar { border-bottom: 0px;}
+html body table#maintable tbody tr td { padding: 0px !important}
+}
+
+@-moz-document url-prefix("http://192.168.178.23/pages/"), url-prefix("http://192.168.178.23/logout"), url-prefix("http://192.168.178.23/login") {
+#content {
+    background-color: var(--dark_05);
+	background-size: cover;
+    background-position: 0px !important;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900'%3E%3Cpath d='M792 499l53-22-106-49z' fill='%23e9f2f1' stroke='%23e9f2f1' stroke-width='2'/%3E%3Cpath d='M845 477l-6-87-100 38z' fill='%23eaf2ed' stroke='%23eaf2ed' stroke-width='2'/%3E%3Cpath d='M845 477l86-81-92-6z' fill='%23e3efe9' stroke='%23e3efe9' stroke-width='2'/%3E%3Cpath d='M839 390l-103-95 3 133z' fill='%23efefe2' stroke='%23efefe2' stroke-width='2'/%3E%3Cpath d='M931 396l-66-88-26 82z' fill='%23e2ecdd' stroke='%23e2ecdd' stroke-width='2'/%3E%3Cpath d='M739 428l-74 87 127-16z' fill='%23eef3f2' stroke='%23eef3f2' stroke-width='2'/%3E%3Cpath d='M865 308l-129-13 103 95z' fill='%23ebebd9' stroke='%23ebebd9' stroke-width='2'/%3E%3Cpath d='M739 428l-113-46 39 133z' fill='%23f6f3ed' stroke='%23f6f3ed' stroke-width='2'/%3E%3Cpath d='M889 621l53-59-97-85z' fill='%23ccece6' stroke='%23ccece6' stroke-width='2'/%3E%3Cpath d='M845 477l144-2-58-79z' fill='%23daeeeb' stroke='%23daeeeb' stroke-width='2'/%3E%3Cpath d='M665 515l85 92 42-108z' fill='%23e2f1ee' stroke='%23e2f1ee' stroke-width='2'/%3E%3Cpath d='M736 295l-110 87 113 46z' fill='%23f6f0e1' stroke='%23f6f0e1' stroke-width='2'/%3E%3Cpath d='M889 621l-44-144-53 22z' fill='%23d6eeea' stroke='%23d6eeea' stroke-width='2'/%3E%3Cpath d='M942 562l47-87-144 2z' fill='%23cfebe7' stroke='%23cfebe7' stroke-width='2'/%3E%3Cpath d='M750 607l139 14-97-122z' fill='%23d1ede8' stroke='%23d1ede8' stroke-width='2'/%3E%3Cpath d='M736 295l-34-39-76 126z' fill='%23f5ead2' stroke='%23f5ead2' stroke-width='2'/%3E%3Cpath d='M788 211l-86 45 34 39z' fill='%23eee2c5' stroke='%23eee2c5' stroke-width='2'/%3E%3Cpath d='M665 515l54 130 31-38z' fill='%23d9ede9' stroke='%23d9ede9' stroke-width='2'/%3E%3Cpath d='M750 607l108 59 31-45z' fill='%23bfe5df' stroke='%23bfe5df' stroke-width='2'/%3E%3Cpath d='M865 308l-77-97-52 84z' fill='%23e9e3c7' stroke='%23e9e3c7' stroke-width='2'/%3E%3Cpath d='M750 680l108-14-108-59z' fill='%23c0e4de' stroke='%23c0e4de' stroke-width='2'/%3E%3Cpath d='M1042 616l-53-141-47 87z' fill='%23bae4dd' stroke='%23bae4dd' stroke-width='2'/%3E%3Cpath d='M865 308l-19-101-58 4z' fill='%23e2ddbd' stroke='%23e2ddbd' stroke-width='2'/%3E%3Cpath d='M995 269l-149-62 19 101z' fill='%23dbdec0' stroke='%23dbdec0' stroke-width='2'/%3E%3Cpath d='M995 269l-130 39 66 88z' fill='%23dae6d0' stroke='%23dae6d0' stroke-width='2'/%3E%3Cpath d='M719 645l31 35v-73z' fill='%23c7e7e1' stroke='%23c7e7e1' stroke-width='2'/%3E%3Cpath d='M702 256l-143 86 67 40z' fill='%23f6eacf' stroke='%23f6eacf' stroke-width='2'/%3E%3Cpath d='M626 382l-75 155 114-22z' fill='%23f1f0e4' stroke='%23f1f0e4' stroke-width='2'/%3E%3Cpath d='M665 515l-114 22 168 108z' fill='%23e0ede3' stroke='%23e0ede3' stroke-width='2'/%3E%3Cpath d='M1090 361l-95-92-64 127z' fill='%23cde1cc' stroke='%23cde1cc' stroke-width='2'/%3E%3Cpath d='M490 397l61 140 75-155z' fill='%23f6eedc' stroke='%23f6eedc' stroke-width='2'/%3E%3Cpath d='M719 645l-70 66 101-31z' fill='%23c0e2db' stroke='%23c0e2db' stroke-width='2'/%3E%3Cpath d='M559 342l-28 11 95 29z' fill='%23f6eacd' stroke='%23f6eacd' stroke-width='2'/%3E%3Cpath d='M510 290l21 63 28-11z' fill='%23f6e7c2' stroke='%23f6e7c2' stroke-width='2'/%3E%3Cpath d='M989 475l101-114-159 35z' fill='%23cce6db' stroke='%23cce6db' stroke-width='2'/%3E%3Cpath d='M1042 616l40-126-93-15z' fill='%23b6e1da' stroke='%23b6e1da' stroke-width='2'/%3E%3Cpath d='M1042 616l-100-54 58 104z' fill='%23a9ded5' stroke='%23a9ded5' stroke-width='2'/%3E%3Cpath d='M995 269l20-30-169-32z' fill='%23d1d7b5' stroke='%23d1d7b5' stroke-width='2'/%3E%3Cpath d='M1116 285l-101-46-20 30z' fill='%23c3d4b3' stroke='%23c3d4b3' stroke-width='2'/%3E%3Cpath d='M702 256l-82-58-61 144z' fill='%23f1e1bc' stroke='%23f1e1bc' stroke-width='2'/%3E%3Cpath d='M725 92L620 198l82 58z' fill='%23ead2ab' stroke='%23ead2ab' stroke-width='2'/%3E%3Cpath d='M725 92l-23 164 86-45z' fill='%23e8d4b0' stroke='%23e8d4b0' stroke-width='2'/%3E%3Cpath d='M1000 666l-58-104-53 59z' fill='%23b2e1da' stroke='%23b2e1da' stroke-width='2'/%3E%3Cpath d='M1082 490l8-129-101 114z' fill='%23c2e3dc' stroke='%23c2e3dc' stroke-width='2'/%3E%3Cpath d='M858 666h142l-111-45z' fill='%23aee0d7' stroke='%23aee0d7' stroke-width='2'/%3E%3Cpath d='M1042 687l-42-21 17 160z' fill='%2383cabf' stroke='%2383cabf' stroke-width='2'/%3E%3Cpath d='M519 616l130 95 70-66z' fill='%23c8e2d3' stroke='%23c8e2d3' stroke-width='2'/%3E%3Cpath d='M864 812l136-146H858z' fill='%239dd6cd' stroke='%239dd6cd' stroke-width='2'/%3E%3Cpath d='M531 353l-41 44 136-15z' fill='%23f6ebce' stroke='%23f6ebce' stroke-width='2'/%3E%3Cpath d='M510 290l-20 107 41-44z' fill='%23f5e6c1' stroke='%23f5e6c1' stroke-width='2'/%3E%3Cpath d='M620 198l-73 42 12 102z' fill='%23f0deb4' stroke='%23f0deb4' stroke-width='2'/%3E%3Cpath d='M547 240l-37 50 49 52z' fill='%23f3e2b8' stroke='%23f3e2b8' stroke-width='2'/%3E%3Cpath d='M551 537l-32 79 200 29z' fill='%23d8e8d8' stroke='%23d8e8d8' stroke-width='2'/%3E%3Cpath d='M474 522l45 94 32-79z' fill='%23e1e7d1' stroke='%23e1e7d1' stroke-width='2'/%3E%3Cpath d='M490 397l-16 125 77 15z' fill='%23eee9d3' stroke='%23eee9d3' stroke-width='2'/%3E%3Cpath d='M1000 666l42 21v-71z' fill='%2396d6cb' stroke='%2396d6cb' stroke-width='2'/%3E%3Cpath d='M1042 616l96-5-56-121z' fill='%23a3dbd2' stroke='%23a3dbd2' stroke-width='2'/%3E%3Cpath d='M864 812l-6-146-108 14z' fill='%23a7d8d0' stroke='%23a7d8d0' stroke-width='2'/%3E%3Cpath d='M1015 239L910 92l-64 115z' fill='%23d1cca5' stroke='%23d1cca5' stroke-width='2'/%3E%3Cpath d='M841 41L725 92l63 119z' fill='%23dcbf96' stroke='%23dcbf96' stroke-width='2'/%3E%3Cpath d='M1116 285l-77-103-24 57z' fill='%23beceaa' stroke='%23beceaa' stroke-width='2'/%3E%3Cpath d='M1090 361l26-76-121-16z' fill='%23c1d8bd' stroke='%23c1d8bd' stroke-width='2'/%3E%3Cpath d='M1162 372l-46-87-26 76z' fill='%23b8d5bf' stroke='%23b8d5bf' stroke-width='2'/%3E%3Cpath d='M841 41l-53 170 58-4z' fill='%23dcc9a2' stroke='%23dcc9a2' stroke-width='2'/%3E%3Cpath d='M512 50l-27 197 62-7z' fill='%23e6ca92' stroke='%23e6ca92' stroke-width='2'/%3E%3Cpath d='M1039 182L910 92l105 147z' fill='%23c5c59c' stroke='%23c5c59c' stroke-width='2'/%3E%3Cpath d='M720 815l144-3-114-132z' fill='%23a0cec8' stroke='%23a0cec8' stroke-width='2'/%3E%3Cpath d='M519 616l58 116 72-21z' fill='%23c0ddc9' stroke='%23c0ddc9' stroke-width='2'/%3E%3Cpath d='M547 240l-62 7 25 43z' fill='%23eedaa9' stroke='%23eedaa9' stroke-width='2'/%3E%3Cpath d='M368 324l12 107 110-34z' fill='%23efddb6' stroke='%23efddb6' stroke-width='2'/%3E%3Cpath d='M490 397l-110 34 94 91z' fill='%23f1e5ca' stroke='%23f1e5ca' stroke-width='2'/%3E%3Cpath d='M596 102l-49 138 73-42z' fill='%23e8cf9d' stroke='%23e8cf9d' stroke-width='2'/%3E%3Cpath d='M1082 490l80-118-72-11z' fill='%23b9dace' stroke='%23b9dace' stroke-width='2'/%3E%3Cpath d='M1178 527l-16-155-80 118z' fill='%23b0d8d1' stroke='%23b0d8d1' stroke-width='2'/%3E%3Cpath d='M720 815l30-135-101 31z' fill='%23b1d7cf' stroke='%23b1d7cf' stroke-width='2'/%3E%3Cpath d='M1042 687l96-76-96 5z' fill='%2393d4ca' stroke='%2393d4ca' stroke-width='2'/%3E%3Cpath d='M519 616l-52 90 110 26z' fill='%23c1dac0' stroke='%23c1dac0' stroke-width='2'/%3E%3Cpath d='M474 522l-17 93 62 1z' fill='%23dae2c7' stroke='%23dae2c7' stroke-width='2'/%3E%3Cpath d='M368 639l89-24 17-93z' fill='%23d5dcbd' stroke='%23d5dcbd' stroke-width='2'/%3E%3Cpath d='M674 819l46-4-71-104z' fill='%23a5ccc2' stroke='%23a5ccc2' stroke-width='2'/%3E%3Cpath d='M1138 611l40-84-96-37z' fill='%23a1d6ce' stroke='%23a1d6ce' stroke-width='2'/%3E%3Cpath d='M725 92l-129 10 24 96z' fill='%23e5c395' stroke='%23e5c395' stroke-width='2'/%3E%3Cpath d='M731 6l-35 54 29 32z' fill='%23d9b28a' stroke='%23d9b28a' stroke-width='2'/%3E%3Cpath d='M696 60l-100 42 129-10z' fill='%23e0b789' stroke='%23e0b789' stroke-width='2'/%3E%3Cpath d='M720 815l14 48 130-51z' fill='%2392c0bb' stroke='%2392c0bb' stroke-width='2'/%3E%3Cpath d='M577 732l97 87-25-108z' fill='%23add0c2' stroke='%23add0c2' stroke-width='2'/%3E%3Cpath d='M910 92l-69-51 5 166z' fill='%23d3bd93' stroke='%23d3bd93' stroke-width='2'/%3E%3Cpath d='M962 58L841 41l69 51z' fill='%23c7af84' stroke='%23c7af84' stroke-width='2'/%3E%3Cpath d='M1039 182L962 58l-52 34z' fill='%23c3b68a' stroke='%23c3b68a' stroke-width='2'/%3E%3Cpath d='M1063 97L962 58l77 124z' fill='%23bbb285' stroke='%23bbb285' stroke-width='2'/%3E%3Cpath d='M368 324l122 73 20-107z' fill='%23f1e0b4' stroke='%23f1e0b4' stroke-width='2'/%3E%3Cpath d='M457 615l10 91 52-90z' fill='%23c9dabe' stroke='%23c9dabe' stroke-width='2'/%3E%3Cpath d='M533 842l122 39 19-62z' fill='%2398bbac' stroke='%2398bbac' stroke-width='2'/%3E%3Cpath d='M368 639l99 67-10-91z' fill='%23c5d4b3' stroke='%23c5d4b3' stroke-width='2'/%3E%3Cpath d='M674 819l60 44-14-48z' fill='%2398c1bb' stroke='%2398c1bb' stroke-width='2'/%3E%3Cpath d='M655 881l79-18-60-44z' fill='%2395bcb3' stroke='%2395bcb3' stroke-width='2'/%3E%3Cpath d='M1162 372l52-48-98-39z' fill='%23b1ceb6' stroke='%23b1ceb6' stroke-width='2'/%3E%3Cpath d='M1137 124l-74-27-24 85z' fill='%23b3b488' stroke='%23b3b488' stroke-width='2'/%3E%3Cpath d='M1247 345l-33-21-52 48z' fill='%23a8c9b4' stroke='%23a8c9b4' stroke-width='2'/%3E%3Cpath d='M1164 164l-125 18 77 103z' fill='%23b3c59c' stroke='%23b3c59c' stroke-width='2'/%3E%3Cpath d='M1063 97l-87-55-14 16z' fill='%23b8a97c' stroke='%23b8a97c' stroke-width='2'/%3E%3Cpath d='M962 58l14-16-135-1z' fill='%23c0aa80' stroke='%23c0aa80' stroke-width='2'/%3E%3Cpath d='M543-36l-31 86 84 52z' fill='%23d3a972' stroke='%23d3a972' stroke-width='2'/%3E%3Cpath d='M841 41L731 6l-6 86z' fill='%23d3af88' stroke='%23d3af88' stroke-width='2'/%3E%3Cpath d='M680-49l51 55 11-74z' fill='%23c69f7d' stroke='%23c69f7d' stroke-width='2'/%3E%3Cpath d='M380 431l-22 33 116 58z' fill='%23ebdfc0' stroke='%23ebdfc0' stroke-width='2'/%3E%3Cpath d='M262 403l96 61 22-33z' fill='%23ead5b0' stroke='%23ead5b0' stroke-width='2'/%3E%3Cpath d='M1042 687l157 13-61-89z' fill='%2380c9bf' stroke='%2380c9bf' stroke-width='2'/%3E%3Cpath d='M864 812l153 14-17-160z' fill='%2384c6bd' stroke='%2384c6bd' stroke-width='2'/%3E%3Cpath d='M963 939l54-113-153-14z' fill='%2371b3ab' stroke='%2371b3ab' stroke-width='2'/%3E%3Cpath d='M485 247l-117 77 142-34z' fill='%23eed8a6' stroke='%23eed8a6' stroke-width='2'/%3E%3Cpath d='M322 242l46 82 117-77z' fill='%23e8cf95' stroke='%23e8cf95' stroke-width='2'/%3E%3Cpath d='M1214 324l-50-160-48 121z' fill='%23acc3a2' stroke='%23acc3a2' stroke-width='2'/%3E%3Cpath d='M1214 324l106-128-156-32z' fill='%239fb491' stroke='%239fb491' stroke-width='2'/%3E%3Cpath d='M1300 429l-53-84-85 27z' fill='%23a2c6b7' stroke='%23a2c6b7' stroke-width='2'/%3E%3Cpath d='M1164 164l-27-40-98 58z' fill='%23afb68a' stroke='%23afb68a' stroke-width='2'/%3E%3Cpath d='M1063 97l-19-126-68 71z' fill='%23aea176' stroke='%23aea176' stroke-width='2'/%3E%3Cpath d='M734 863l133 80-3-131z' fill='%2384b5af' stroke='%2384b5af' stroke-width='2'/%3E%3Cpath d='M533 842l141-23-97-87z' fill='%23a2c5b3' stroke='%23a2c5b3' stroke-width='2'/%3E%3Cpath d='M467 706l66 136 44-110z' fill='%23adcab2' stroke='%23adcab2' stroke-width='2'/%3E%3Cpath d='M358 464l10 175 106-117z' fill='%23dfdcbb' stroke='%23dfdcbb' stroke-width='2'/%3E%3Cpath d='M1138 611l151 33-111-117z' fill='%2387c7bf' stroke='%2387c7bf' stroke-width='2'/%3E%3Cpath d='M1178 527l98-51-114-104z' fill='%23a4cec9' stroke='%23a4cec9' stroke-width='2'/%3E%3Cpath d='M1113 811l86-111-157-13z' fill='%236dbeb3' stroke='%236dbeb3' stroke-width='2'/%3E%3Cpath d='M1326 588l-50-112-98 51z' fill='%238cc3bc' stroke='%238cc3bc' stroke-width='2'/%3E%3Cpath d='M447 816l86 26-66-136z' fill='%23a3bfa3' stroke='%23a3bfa3' stroke-width='2'/%3E%3Cpath d='M596 102l-84-52 35 190z' fill='%23e3c088' stroke='%23e3c088' stroke-width='2'/%3E%3Cpath d='M680-49l-84 151 100-42z' fill='%23d5ac80' stroke='%23d5ac80' stroke-width='2'/%3E%3Cpath d='M1017 826l96-15-71-124z' fill='%236ebcb2' stroke='%236ebcb2' stroke-width='2'/%3E%3Cpath d='M1247 345l73-149-106 128z' fill='%239dba9e' stroke='%239dba9e' stroke-width='2'/%3E%3Cpath d='M1276 476l24-47-138-57z' fill='%23a0c7bf' stroke='%23a0c7bf' stroke-width='2'/%3E%3Cpath d='M1376 504l-76-75-24 47z' fill='%2391bdb7' stroke='%2391bdb7' stroke-width='2'/%3E%3Cpath d='M731 6l-51-55 16 109z' fill='%23cfa781' stroke='%23cfa781' stroke-width='2'/%3E%3Cpath d='M742-68L731 6l110 35z' fill='%23c7a47f' stroke='%23c7a47f' stroke-width='2'/%3E%3Cpath d='M703 993l164-50-133-80z' fill='%2381aaa4' stroke='%2381aaa4' stroke-width='2'/%3E%3Cpath d='M1167 902l-10-85-44-6z' fill='%234ba298' stroke='%234ba298' stroke-width='2'/%3E%3Cpath d='M878-121L742-68l99 109z' fill='%23b89b78' stroke='%23b89b78' stroke-width='2'/%3E%3Cpath d='M533 842l80 99 42-60z' fill='%2391b1a1' stroke='%2391b1a1' stroke-width='2'/%3E%3Cpath d='M347 818l100-2 20-110z' fill='%23a3ba99' stroke='%23a3ba99' stroke-width='2'/%3E%3Cpath d='M378 123l-56 119 163 5z' fill='%23e1c582' stroke='%23e1c582' stroke-width='2'/%3E%3Cpath d='M368 324l-91 20 103 87z' fill='%23ebd4a4' stroke='%23ebd4a4' stroke-width='2'/%3E%3Cpath d='M358 464l-85 115 95 60z' fill='%23d8d2ac' stroke='%23d8d2ac' stroke-width='2'/%3E%3Cpath d='M1064 927l49-116-96 15z' fill='%235aaaa1' stroke='%235aaaa1' stroke-width='2'/%3E%3Cpath d='M1113 811l44 6 42-117z' fill='%2359afa5' stroke='%2359afa5' stroke-width='2'/%3E%3Cpath d='M1199 700l90-56-151-33z' fill='%2375bfb5' stroke='%2375bfb5' stroke-width='2'/%3E%3Cpath d='M447 816l30 38 56-12z' fill='%2399b59a' stroke='%2399b59a' stroke-width='2'/%3E%3Cpath d='M655 881l48 112 31-130z' fill='%238bafa8' stroke='%238bafa8' stroke-width='2'/%3E%3Cpath d='M388-27l-10 150 134-73z' fill='%23cda05d' stroke='%23cda05d' stroke-width='2'/%3E%3Cpath d='M512 50l-134 73 107 124z' fill='%23deba7a' stroke='%23deba7a' stroke-width='2'/%3E%3Cpath d='M867 943l96-4-99-127z' fill='%2375aea6' stroke='%2375aea6' stroke-width='2'/%3E%3Cpath d='M976 42L956-93 841 41z' fill='%23b6a079' stroke='%23b6a079' stroke-width='2'/%3E%3Cpath d='M1146 4l-102-33 19 126z' fill='%23a19a6e' stroke='%23a19a6e' stroke-width='2'/%3E%3Cpath d='M1146 4l-83 93 74 27z' fill='%23a6a072' stroke='%23a6a072' stroke-width='2'/%3E%3Cpath d='M322 242l-45 102 91-20z' fill='%23e7ca91' stroke='%23e7ca91' stroke-width='2'/%3E%3Cpath d='M1291 745l-2-101-90 56z' fill='%235cb1a7' stroke='%235cb1a7' stroke-width='2'/%3E%3Cpath d='M1300 429l25-64-78-20z' fill='%239bbeaf' stroke='%239bbeaf' stroke-width='2'/%3E%3Cpath d='M1226 13l-80-9-9 120z' fill='%23989367' stroke='%23989367' stroke-width='2'/%3E%3Cpath d='M1376 504l-51-139-25 64z' fill='%2394bbb3' stroke='%2394bbb3' stroke-width='2'/%3E%3Cpath d='M477 854l136 87-80-99z' fill='%2393b19b' stroke='%2393b19b' stroke-width='2'/%3E%3Cpath d='M277 344l-15 59 118 28z' fill='%23e9cfa1' stroke='%23e9cfa1' stroke-width='2'/%3E%3Cpath d='M368 639l-43 62 142 5z' fill='%23bbcca6' stroke='%23bbcca6' stroke-width='2'/%3E%3Cpath d='M680-49L543-36l53 138z' fill='%23cda475' stroke='%23cda475' stroke-width='2'/%3E%3Cpath d='M584-148L543-36l137-13z' fill='%23ba956c' stroke='%23ba956c' stroke-width='2'/%3E%3Cpath d='M273 579l52 122 43-62z' fill='%23c4c89f' stroke='%23c4c89f' stroke-width='2'/%3E%3Cpath d='M447 816l-93 49 123-11z' fill='%2395ad8d' stroke='%2395ad8d' stroke-width='2'/%3E%3Cpath d='M234 503l39 76 85-115z' fill='%23ddcba5' stroke='%23ddcba5' stroke-width='2'/%3E%3Cpath d='M1289 644l37-56-148-61z' fill='%237ebeb7' stroke='%237ebeb7' stroke-width='2'/%3E%3Cpath d='M1044-29l-88-64 20 135z' fill='%23a6966f' stroke='%23a6966f' stroke-width='2'/%3E%3Cpath d='M963 939l101-12-47-101z' fill='%235ea59c' stroke='%235ea59c' stroke-width='2'/%3E%3Cpath d='M1044-29l70-40-158-24z' fill='%23968d68' stroke='%23968d68' stroke-width='2'/%3E%3Cpath d='M1226 13l-89 111 27 40z' fill='%23a09d70' stroke='%23a09d70' stroke-width='2'/%3E%3Cpath d='M1325 365l22-35-100 15z' fill='%2399baa6' stroke='%2399baa6' stroke-width='2'/%3E%3Cpath d='M1484 407l-137-77-22 35z' fill='%2390b09f' stroke='%2390b09f' stroke-width='2'/%3E%3Cpath d='M613 941l90 52-48-112z' fill='%2388a89d' stroke='%2388a89d' stroke-width='2'/%3E%3Cpath d='M867 943l60 68 36-72z' fill='%23699f96' stroke='%23699f96' stroke-width='2'/%3E%3Cpath d='M1055 1074l51-56-42-91z' fill='%23468a7f' stroke='%23468a7f' stroke-width='2'/%3E%3Cpath d='M543-36l-66 11 35 75z' fill='%23c99d65' stroke='%23c99d65' stroke-width='2'/%3E%3Cpath d='M325 701l22 117 120-112z' fill='%23abbf9a' stroke='%23abbf9a' stroke-width='2'/%3E%3Cpath d='M273 579l33 137 19-15z' fill='%23bcc197' stroke='%23bcc197' stroke-width='2'/%3E%3Cpath d='M956-93l-78-28-37 162z' fill='%23af9775' stroke='%23af9775' stroke-width='2'/%3E%3Cpath d='M742-68l-41-60-21 79z' fill='%23ba9879' stroke='%23ba9879' stroke-width='2'/%3E%3Cpath d='M543-36l-69-42 3 53z' fill='%23be935e' stroke='%23be935e' stroke-width='2'/%3E%3Cpath d='M273 579l-79 29 112 108z' fill='%23c2bc92' stroke='%23c2bc92' stroke-width='2'/%3E%3Cpath d='M262 403l-28 100 124-39z' fill='%23e7cda7' stroke='%23e7cda7' stroke-width='2'/%3E%3Cpath d='M137 421l97 82 28-100z' fill='%23e3bf96' stroke='%23e3bf96' stroke-width='2'/%3E%3Cpath d='M878-121l-177-7 41 60z' fill='%23ae9377' stroke='%23ae9377' stroke-width='2'/%3E%3Cpath d='M1347 330l-27-134-73 149z' fill='%2398b498' stroke='%2398b498' stroke-width='2'/%3E%3Cpath d='M322 242l-64-5 19 107z' fill='%23e0bf80' stroke='%23e0bf80' stroke-width='2'/%3E%3Cpath d='M277 344l-100-40 85 99z' fill='%23e3c08a' stroke='%23e3c08a' stroke-width='2'/%3E%3Cpath d='M214 176l44 61 64 5z' fill='%23d9b36c' stroke='%23d9b36c' stroke-width='2'/%3E%3Cpath d='M214 176l108 66 56-119z' fill='%23d8b168' stroke='%23d8b168' stroke-width='2'/%3E%3Cpath d='M1289 644l74 8-37-64z' fill='%236ab0a8' stroke='%236ab0a8' stroke-width='2'/%3E%3Cpath d='M1157 817l134-72-92-45z' fill='%2354aba1' stroke='%2354aba1' stroke-width='2'/%3E%3Cpath d='M1319 779l-28-34-44 138z' fill='%2337968e' stroke='%2337968e' stroke-width='2'/%3E%3Cpath d='M1326 588l50-84-100-28z' fill='%2386b9b3' stroke='%2386b9b3' stroke-width='2'/%3E%3Cpath d='M1363 652l13-148-50 84z' fill='%2376b2aa' stroke='%2376b2aa' stroke-width='2'/%3E%3Cpath d='M852 1046l75-35-60-68z' fill='%236c9a91' stroke='%236c9a91' stroke-width='2'/%3E%3Cpath d='M306 716l41 102-22-117z' fill='%23a8b78e' stroke='%23a8b78e' stroke-width='2'/%3E%3Cpath d='M484 1045l84 7 45-111z' fill='%23819680' stroke='%23819680' stroke-width='2'/%3E%3Cpath d='M654 1132l90-105-41-34z' fill='%237b948a' stroke='%237b948a' stroke-width='2'/%3E%3Cpath d='M703 993l41 34 123-84z' fill='%237ba098' stroke='%237ba098' stroke-width='2'/%3E%3Cpath d='M568 1052l135-59-90-52z' fill='%23829c8d' stroke='%23829c8d' stroke-width='2'/%3E%3Cpath d='M1064 927l103-25-54-91z' fill='%234b9e95' stroke='%234b9e95' stroke-width='2'/%3E%3Cpath d='M1140 978l27-76-103 25z' fill='%23409288' stroke='%23409288' stroke-width='2'/%3E%3Cpath d='M1146 4l-32-73-70 40z' fill='%23948c64' stroke='%23948c64' stroke-width='2'/%3E%3Cpath d='M956-93l263-31-341 3z' fill='%238c8667' stroke='%238c8667' stroke-width='2'/%3E%3Cpath d='M1219-124l-105 55 32 73z' fill='%23827f5b' stroke='%23827f5b' stroke-width='2'/%3E%3Cpath d='M1320 196l-4-63-152 31z' fill='%2394a178' stroke='%2394a178' stroke-width='2'/%3E%3Cpath d='M1371 169l-55-36 4 63z' fill='%238d986f' stroke='%238d986f' stroke-width='2'/%3E%3Cpath d='M1371 169l-51 27 27 134z' fill='%2390a582' stroke='%2390a582' stroke-width='2'/%3E%3Cpath d='M1291 745l72-93-74-8z' fill='%235baca2' stroke='%235baca2' stroke-width='2'/%3E%3Cpath d='M1316 133l-90-120-62 151z' fill='%23969669' stroke='%23969669' stroke-width='2'/%3E%3Cpath d='M1224 997l23-114-80 19z' fill='%232e877e' stroke='%232e877e' stroke-width='2'/%3E%3Cpath d='M744 1027l108 19 15-103z' fill='%23739b92' stroke='%23739b92' stroke-width='2'/%3E%3Cpath d='M477-25l-89-2 124 77z' fill='%23c6995c' stroke='%23c6995c' stroke-width='2'/%3E%3Cpath d='M584-148L474-78l69 42z' fill='%23b69162' stroke='%23b69162' stroke-width='2'/%3E%3Cpath d='M347 818l7 47 93-49z' fill='%2396ab88' stroke='%2396ab88' stroke-width='2'/%3E%3Cpath d='M285 858l69 7-7-47z' fill='%2391a17a' stroke='%2391a17a' stroke-width='2'/%3E%3Cpath d='M285 858l62-40-93 26z' fill='%23909d74' stroke='%23909d74' stroke-width='2'/%3E%3Cpath d='M474-78l-86 51 89 2z' fill='%23bb8f55' stroke='%23bb8f55' stroke-width='2'/%3E%3Cpath d='M1291 745l28 34 44-127z' fill='%234ca298' stroke='%234ca298' stroke-width='2'/%3E%3Cpath d='M1247 883l44-138-134 72z' fill='%233c9b93' stroke='%233c9b93' stroke-width='2'/%3E%3Cpath d='M365-82L266 23l122-50z' fill='%23b68641' stroke='%23b68641' stroke-width='2'/%3E%3Cpath d='M701-128l-117-20 96 99z' fill='%23b29171' stroke='%23b29171' stroke-width='2'/%3E%3Cpath d='M878-121l-294-27 117 20z' fill='%23ac9077' stroke='%23ac9077' stroke-width='2'/%3E%3Cpath d='M234 503l-40 105 79-29z' fill='%23d2bf96' stroke='%23d2bf96' stroke-width='2'/%3E%3Cpath d='M119 489l75 119 40-105z' fill='%23d3b78c' stroke='%23d3b78c' stroke-width='2'/%3E%3Cpath d='M1140 978l-76-51 42 91z' fill='%23428e82' stroke='%23428e82' stroke-width='2'/%3E%3Cpath d='M1167 902l80-19-90-66z' fill='%233d978d' stroke='%233d978d' stroke-width='2'/%3E%3Cpath d='M1316 133l47-57-137-63z' fill='%2388865a' stroke='%2388865a' stroke-width='2'/%3E%3Cpath d='M1475 173l-104-4 139 116z' fill='%2382926d' stroke='%2382926d' stroke-width='2'/%3E%3Cpath d='M258 237l-81 67 100 40z' fill='%23dfb97c' stroke='%23dfb97c' stroke-width='2'/%3E%3Cpath d='M214 176l-37 128 81-67z' fill='%23d7ad67' stroke='%23d7ad67' stroke-width='2'/%3E%3Cpath d='M1064 927l-101 12 92 135z' fill='%23529489' stroke='%23529489' stroke-width='2'/%3E%3Cpath d='M225 105l-11 71 164-53z' fill='%23cf9e53' stroke='%23cf9e53' stroke-width='2'/%3E%3Cpath d='M484 1045l129-104-136-87z' fill='%2388a18a' stroke='%2388a18a' stroke-width='2'/%3E%3Cpath d='M767 1153l140-67-55-40z' fill='%236b9087' stroke='%236b9087' stroke-width='2'/%3E%3Cpath d='M1140 978l84 19-57-95z' fill='%2334867c' stroke='%2334867c' stroke-width='2'/%3E%3Cpath d='M1055 1074l-92-135-36 72z' fill='%23589187' stroke='%23589187' stroke-width='2'/%3E%3Cpath d='M852 1046l55 40 20-75z' fill='%23659087' stroke='%23659087' stroke-width='2'/%3E%3Cpath d='M767 1153l85-107-108-19z' fill='%23729289' stroke='%23729289' stroke-width='2'/%3E%3Cpath d='M177 304l-40 117 125-18z' fill='%23e0b985' stroke='%23e0b985' stroke-width='2'/%3E%3Cpath d='M90 485l47-64-57-16z' fill='%23d6ae86' stroke='%23d6ae86' stroke-width='2'/%3E%3Cpath d='M359 975l125 70-7-191z' fill='%23839778' stroke='%23839778' stroke-width='2'/%3E%3Cpath d='M254 844l93-26-41-102z' fill='%239ba87f' stroke='%239ba87f' stroke-width='2'/%3E%3Cpath d='M214 176L57 280l120 24z' fill='%23d1a460' stroke='%23d1a460' stroke-width='2'/%3E%3Cpath d='M266 23l-41 82 153 18z' fill='%23c99546' stroke='%23c99546' stroke-width='2'/%3E%3Cpath d='M1247 883l112-89-40-15z' fill='%232f9088' stroke='%232f9088' stroke-width='2'/%3E%3Cpath d='M1319 779l40 15 4-142z' fill='%23449b92' stroke='%23449b92' stroke-width='2'/%3E%3Cpath d='M1488 459l-4-52-108 97z' fill='%2386aba5' stroke='%2386aba5' stroke-width='2'/%3E%3Cpath d='M1396 928l-37-134-112 89z' fill='%2323827a' stroke='%2323827a' stroke-width='2'/%3E%3Cpath d='M225 105l-23 31 12 40z' fill='%23ca9547' stroke='%23ca9547' stroke-width='2'/%3E%3Cpath d='M1371 169l-8-93-47 57z' fill='%23888c61' stroke='%23888c61' stroke-width='2'/%3E%3Cpath d='M1226 13l-7-137-73 128z' fill='%23837e58' stroke='%23837e58' stroke-width='2'/%3E%3Cpath d='M-3 192l32 32L17 92z' fill='%23b5813a' stroke='%23b5813a' stroke-width='2'/%3E%3Cpath d='M388-27L266 23l112 100z' fill='%23c5954c' stroke='%23c5954c' stroke-width='2'/%3E%3Cpath d='M365-82l23 55 86-51z' fill='%23b3894d' stroke='%23b3894d' stroke-width='2'/%3E%3Cpath d='M584-148L365-82l109 4z' fill='%23ad8857' stroke='%23ad8857' stroke-width='2'/%3E%3Cpath d='M359 975l118-121-123 11z' fill='%238a9f7c' stroke='%238a9f7c' stroke-width='2'/%3E%3Cpath d='M178 808l76 36 52-128z' fill='%23999e74' stroke='%23999e74' stroke-width='2'/%3E%3Cpath d='M178 808l128-92-173 11z' fill='%23a1a073' stroke='%23a1a073' stroke-width='2'/%3E%3Cpath d='M137 421l-18 68 115 14z' fill='%23dbb78d' stroke='%23dbb78d' stroke-width='2'/%3E%3Cpath d='M90 485l29 4 18-68z' fill='%23d5b089' stroke='%23d5b089' stroke-width='2'/%3E%3Cpath d='M767 1153l184-47-44-20z' fill='%23678f86' stroke='%23678f86' stroke-width='2'/%3E%3Cpath d='M359 975l-5-110-69-7z' fill='%23889770' stroke='%23889770' stroke-width='2'/%3E%3Cpath d='M907 1086l44 20-24-95z' fill='%235f8d82' stroke='%235f8d82' stroke-width='2'/%3E%3Cpath d='M654 1132l49-139-135 59z' fill='%237c9182' stroke='%237c9182' stroke-width='2'/%3E%3Cpath d='M1164 1080l60-83-84-19z' fill='%23307b70' stroke='%23307b70' stroke-width='2'/%3E%3Cpath d='M951 1106l104-32-128-63z' fill='%2356897e' stroke='%2356897e' stroke-width='2'/%3E%3Cpath d='M1376 504l108-97-159-42z' fill='%238eb1a9' stroke='%238eb1a9' stroke-width='2'/%3E%3Cpath d='M1371 169l106-49-114-44z' fill='%23828359' stroke='%23828359' stroke-width='2'/%3E%3Cpath d='M1488 459l-112 45 150 33z' fill='%237ca7a0' stroke='%237ca7a0' stroke-width='2'/%3E%3Cpath d='M1526 537l-150-33-13 148z' fill='%2373aaa3' stroke='%2373aaa3' stroke-width='2'/%3E%3Cpath d='M289 1001l70-26-74-117z' fill='%23808963' stroke='%23808963' stroke-width='2'/%3E%3Cpath d='M1506 43l-155-32 12 65z' fill='%23767148' stroke='%23767148' stroke-width='2'/%3E%3Cpath d='M1363 76l-12-65-125 2z' fill='%237f7c52' stroke='%237f7c52' stroke-width='2'/%3E%3Cpath d='M1164 1080l-24-102-34 40z' fill='%23387f74' stroke='%23387f74' stroke-width='2'/%3E%3Cpath d='M1114-69l105-55-263 31z' fill='%23848361' stroke='%23848361' stroke-width='2'/%3E%3Cpath d='M878-121l341-3-635-24z' fill='%239b8b71' stroke='%239b8b71' stroke-width='2'/%3E%3Cpath d='M1299-55l-80-69 7 137z' fill='%23767450' stroke='%23767450' stroke-width='2'/%3E%3Cpath d='M1351 11l-52-66-73 68z' fill='%237a764f' stroke='%237a764f' stroke-width='2'/%3E%3Cpath d='M493 1124l47-28-56-51z' fill='%237b8b6f' stroke='%237b8b6f' stroke-width='2'/%3E%3Cpath d='M484 1045l56 51 28-44z' fill='%237c8d74' stroke='%237c8d74' stroke-width='2'/%3E%3Cpath d='M540 1096l114 36-86-80z' fill='%237c8f7b' stroke='%237c8f7b' stroke-width='2'/%3E%3Cpath d='M119 489L60 610l134-2z' fill='%23c6ad83' stroke='%23c6ad83' stroke-width='2'/%3E%3Cpath d='M80 405l57 16 40-117z' fill='%23d8af7d' stroke='%23d8af7d' stroke-width='2'/%3E%3Cpath d='M654 1132l113 21-23-126z' fill='%237a948c' stroke='%237a948c' stroke-width='2'/%3E%3Cpath d='M57 280l23 125 97-101z' fill='%23d4a971' stroke='%23d4a971' stroke-width='2'/%3E%3Cpath d='M173 875l116 126-4-143z' fill='%2382865c' stroke='%2382865c' stroke-width='2'/%3E%3Cpath d='M133 727l173-11-112-108z' fill='%23b3ae80' stroke='%23b3ae80' stroke-width='2'/%3E%3Cpath d='M60 610l73 117 61-119z' fill='%23b3a679' stroke='%23b3a679' stroke-width='2'/%3E%3Cpath d='M584-148l-268 45 49 21z' fill='%23a8824d' stroke='%23a8824d' stroke-width='2'/%3E%3Cpath d='M365-82l-49-21-50 126z' fill='%23ae7d3b' stroke='%23ae7d3b' stroke-width='2'/%3E%3Cpath d='M29 224l185-48-12-40z' fill='%23c89649' stroke='%23c89649' stroke-width='2'/%3E%3Cpath d='M1510 285l-163 45 137 77z' fill='%238aa691' stroke='%238aa691' stroke-width='2'/%3E%3Cpath d='M1510 285l-139-116-24 161z' fill='%238ba182' stroke='%238ba182' stroke-width='2'/%3E%3Cpath d='M1540 317l-30-32-26 122z' fill='%23859d87' stroke='%23859d87' stroke-width='2'/%3E%3Cpath d='M1488 459l46-56-50 4z' fill='%2384a399' stroke='%2384a399' stroke-width='2'/%3E%3Cpath d='M1520 642l6-105-163 115z' fill='%23629e96' stroke='%23629e96' stroke-width='2'/%3E%3Cpath d='M1526 537l8-134-46 56z' fill='%237fa29b' stroke='%237fa29b' stroke-width='2'/%3E%3Cpath d='M1055 1074l109 6-58-62z' fill='%233c7d71' stroke='%233c7d71' stroke-width='2'/%3E%3Cpath d='M951 1106l213-26-109-6z' fill='%23468377' stroke='%23468377' stroke-width='2'/%3E%3Cpath d='M1390 1103l-226-23 290 50z' fill='%23115e54' stroke='%23115e54' stroke-width='2'/%3E%3Cpath d='M1359 794l121-45-117-97z' fill='%2342968c' stroke='%2342968c' stroke-width='2'/%3E%3Cpath d='M1516 799l-36-50-121 45z' fill='%232c847b' stroke='%232c847b' stroke-width='2'/%3E%3Cpath d='M1396 928l-149-45-23 114z' fill='%231b7a72' stroke='%231b7a72' stroke-width='2'/%3E%3Cpath d='M1652 338l-112-21-6 86z' fill='%23809681' stroke='%23809681' stroke-width='2'/%3E%3Cpath d='M1480 749l40-107-157 10z' fill='%234d988e' stroke='%234d988e' stroke-width='2'/%3E%3Cpath d='M540 1096l-47 28 161 8z' fill='%237c8f78' stroke='%237c8f78' stroke-width='2'/%3E%3Cpath d='M654 1132l-161-8 274 29z' fill='%237c9181' stroke='%237c9181' stroke-width='2'/%3E%3Cpath d='M381 1109l112 15-9-79z' fill='%23798666' stroke='%23798666' stroke-width='2'/%3E%3Cpath d='M381 1109l103-64-125-70z' fill='%23788360' stroke='%23788360' stroke-width='2'/%3E%3Cpath d='M1475 173l2-53-106 49z' fill='%2380865e' stroke='%2380865e' stroke-width='2'/%3E%3Cpath d='M1351 11l28-106-80 40z' fill='%236c6845' stroke='%236c6845' stroke-width='2'/%3E%3Cpath d='M1506 43l-29 77 86 16z' fill='%23756f44' stroke='%23756f44' stroke-width='2'/%3E%3Cpath d='M1588 213l-113-40 35 112z' fill='%237d8c67' stroke='%237d8c67' stroke-width='2'/%3E%3Cpath d='M1534 403l6-86-56 90z' fill='%23849e8d' stroke='%23849e8d' stroke-width='2'/%3E%3Cpath d='M1603 559l-69-156-8 134z' fill='%23769b93' stroke='%23769b93' stroke-width='2'/%3E%3Cpath d='M90 485L60 610l59-121z' fill='%23c8aa83' stroke='%23c8aa83' stroke-width='2'/%3E%3Cpath d='M81 870l92 5 5-67z' fill='%23848156' stroke='%23848156' stroke-width='2'/%3E%3Cpath d='M-51 591l111 19 30-125z' fill='%23baa17b' stroke='%23baa17b' stroke-width='2'/%3E%3Cpath d='M80 405l-90 5 100 75z' fill='%23cfa780' stroke='%23cfa780' stroke-width='2'/%3E%3Cpath d='M29 224l28 56 157-104z' fill='%23c89a54' stroke='%23c89a54' stroke-width='2'/%3E%3Cpath d='M202 136l23-31L116-40z' fill='%23bb7e2b' stroke='%23bb7e2b' stroke-width='2'/%3E%3Cpath d='M173 875l81-31-76-36z' fill='%238c8c60' stroke='%238c8c60' stroke-width='2'/%3E%3Cpath d='M173 875l112-17-31-14z' fill='%238a8f64' stroke='%238a8f64' stroke-width='2'/%3E%3Cpath d='M57 799l121 9-45-81z' fill='%23918e62' stroke='%23918e62' stroke-width='2'/%3E%3Cpath d='M60 610l22 103 51 14z' fill='%23a59c71' stroke='%23a59c71' stroke-width='2'/%3E%3Cpath d='M1341 1050l55-122-172 69z' fill='%23156c62' stroke='%23156c62' stroke-width='2'/%3E%3Cpath d='M1164 1080l115-24-55-59z' fill='%23246f65' stroke='%23246f65' stroke-width='2'/%3E%3Cpath d='M1506 43L1379-95l-28 106z' fill='%236b6640' stroke='%236b6640' stroke-width='2'/%3E%3Cpath d='M1299-55l80-40-160-29z' fill='%23666848' stroke='%23666848' stroke-width='2'/%3E%3Cpath d='M289 1001l92 108-22-134z' fill='%23777f58' stroke='%23777f58' stroke-width='2'/%3E%3Cpath d='M298 1114l83-5-92-108z' fill='%2373774e' stroke='%2373774e' stroke-width='2'/%3E%3Cpath d='M57 280l-67 130 90-5z' fill='%23cca272' stroke='%23cca272' stroke-width='2'/%3E%3Cpath d='M116-40l109 145 41-82z' fill='%23b57a2b' stroke='%23b57a2b' stroke-width='2'/%3E%3Cpath d='M1396 928l120-129-157-5z' fill='%231c7c74' stroke='%231c7c74' stroke-width='2'/%3E%3Cpath d='M1480 749l71 28-31-135z' fill='%233c887d' stroke='%233c887d' stroke-width='2'/%3E%3Cpath d='M1520 642l83-83-77-22z' fill='%2366978e' stroke='%2366978e' stroke-width='2'/%3E%3Cpath d='M1551 777l-35 22 69 58z' fill='%231d7168' stroke='%231d7168' stroke-width='2'/%3E%3Cpath d='M-98 319l88 91 67-130z' fill='%23c29967' stroke='%23c29967' stroke-width='2'/%3E%3Cpath d='M-20 770l77 29 25-86z' fill='%238b865d' stroke='%238b865d' stroke-width='2'/%3E%3Cpath d='M1477 120l29-77-143 33z' fill='%23787347' stroke='%23787347' stroke-width='2'/%3E%3Cpath d='M1563 136l-86-16-2 53z' fill='%237a7c52' stroke='%237a7c52' stroke-width='2'/%3E%3Cpath d='M1691 612l-88-53 82 110z' fill='%23588a7f' stroke='%23588a7f' stroke-width='2'/%3E%3Cpath d='M1540 317l48-104-78 72z' fill='%237f9071' stroke='%237f9071' stroke-width='2'/%3E%3Cpath d='M1279 1056l62-6-117-53z' fill='%2318695f' stroke='%2318695f' stroke-width='2'/%3E%3Cpath d='M1390 1103l-49-53-62 6z' fill='%23115e54' stroke='%23115e54' stroke-width='2'/%3E%3Cpath d='M1390 1103l-111-47-115 24z' fill='%2318665c' stroke='%2318665c' stroke-width='2'/%3E%3Cpath d='M1652 338l-64-125-48 104z' fill='%237d8d6f' stroke='%237d8d6f' stroke-width='2'/%3E%3Cpath d='M1588 213l-25-77-88 37z' fill='%23797e57' stroke='%23797e57' stroke-width='2'/%3E%3Cpath d='M173 875l1 129 115-3z' fill='%2379764b' stroke='%2379764b' stroke-width='2'/%3E%3Cpath d='M82 713l-25 86 76-72z' fill='%23959065' stroke='%23959065' stroke-width='2'/%3E%3Cpath d='M-20 770l102-57-143-32z' fill='%23908961' stroke='%23908961' stroke-width='2'/%3E%3Cpath d='M1516 799l35-22-71-28z' fill='%232c7d74' stroke='%232c7d74' stroke-width='2'/%3E%3Cpath d='M1521 916l-5-117-120 129z' fill='%230f6c64' stroke='%230f6c64' stroke-width='2'/%3E%3Cpath d='M201-145L116-40l150 63z' fill='%23a26920' stroke='%23a26920' stroke-width='2'/%3E%3Cpath d='M584-148l-383 3 115 42z' fill='%239e7a42' stroke='%239e7a42' stroke-width='2'/%3E%3Cpath d='M316-103l-115-42 65 168z' fill='%23a3712e' stroke='%23a3712e' stroke-width='2'/%3E%3Cpath d='M57 799l24 71 97-62z' fill='%23848158' stroke='%23848158' stroke-width='2'/%3E%3Cpath d='M17 92l12 132 173-88z' fill='%23bb853a' stroke='%23bb853a' stroke-width='2'/%3E%3Cpath d='M29 224l-111 32 139 24z' fill='%23bd9052' stroke='%23bd9052' stroke-width='2'/%3E%3Cpath d='M381 1109l-83 5 195 10z' fill='%2376805b' stroke='%2376805b' stroke-width='2'/%3E%3Cpath d='M493 1124l-680 25 954 4z' fill='%23747c55' stroke='%23747c55' stroke-width='2'/%3E%3Cpath d='M204 1073l94 41-9-113z' fill='%23706d43' stroke='%23706d43' stroke-width='2'/%3E%3Cpath d='M81 870l93 134-1-129z' fill='%23797449' stroke='%23797449' stroke-width='2'/%3E%3Cpath d='M-104 372l49 103 45-65z' fill='%23bd9975' stroke='%23bd9975' stroke-width='2'/%3E%3Cpath d='M-10 410l-45 65 145 10z' fill='%23c8a17f' stroke='%23c8a17f' stroke-width='2'/%3E%3Cpath d='M57 799l-138 67 162 4z' fill='%2376724c' stroke='%2376724c' stroke-width='2'/%3E%3Cpath d='M116-40L17 92l185 44z' fill='%23b17324' stroke='%23b17324' stroke-width='2'/%3E%3Cpath d='M1702 56l-156-86 17 166z' fill='%23665c30' stroke='%23665c30' stroke-width='2'/%3E%3Cpath d='M1701 454l-49-116-118 65z' fill='%237c9182' stroke='%237c9182' stroke-width='2'/%3E%3Cpath d='M-55 475l4 116L90 485z' fill='%23bc9d7a' stroke='%23bc9d7a' stroke-width='2'/%3E%3Cpath d='M1551 777l55-35-86-100z' fill='%233b8378' stroke='%233b8378' stroke-width='2'/%3E%3Cpath d='M1603 559l98-105-167-51z' fill='%2377958c' stroke='%2377958c' stroke-width='2'/%3E%3Cpath d='M1585 857l21-115-55 35z' fill='%23237167' stroke='%23237167' stroke-width='2'/%3E%3Cpath d='M1475 1053l46-137-125 12z' fill='%23015e55' stroke='%23015e55' stroke-width='2'/%3E%3Cpath d='M100 1097l104-24-30-69z' fill='%23685d30' stroke='%23685d30' stroke-width='2'/%3E%3Cpath d='M174 1004l30 69 85-72z' fill='%23716c40' stroke='%23716c40' stroke-width='2'/%3E%3Cpath d='M116-40L-5 27l22 65z' fill='%239f6318' stroke='%239f6318' stroke-width='2'/%3E%3Cpath d='M96-151L79-52l37 12z' fill='%238f5813' stroke='%238f5813' stroke-width='2'/%3E%3Cpath d='M18 1012l82 85 74-93z' fill='%2363582e' stroke='%2363582e' stroke-width='2'/%3E%3Cpath d='M-61 681l143 32-22-103z' fill='%23a1956c' stroke='%23a1956c' stroke-width='2'/%3E%3Cpath d='M1563 136l-17-166-40 73z' fill='%236b6238' stroke='%236b6238' stroke-width='2'/%3E%3Cpath d='M1506 43l1-145-128 7z' fill='%235e5935' stroke='%235e5935' stroke-width='2'/%3E%3Cpath d='M1648 171l-85-35 25 77z' fill='%2374774f' stroke='%2374774f' stroke-width='2'/%3E%3Cpath d='M1341 1050l134 3-79-125z' fill='%23075e54' stroke='%23075e54' stroke-width='2'/%3E%3Cpath d='M1454 1130l-290-50-213 26z' fill='%232b7267' stroke='%232b7267' stroke-width='2'/%3E%3Cpath d='M1521 916l64-59-69-58z' fill='%23146a60' stroke='%23146a60' stroke-width='2'/%3E%3Cpath d='M1561 955l24-98-64 59z' fill='%23065e55' stroke='%23065e55' stroke-width='2'/%3E%3Cpath d='M1652 338l-4-167-60 42z' fill='%2377815e' stroke='%2377815e' stroke-width='2'/%3E%3Cpath d='M1546-30l-39-72-1 145z' fill='%235e5630' stroke='%235e5630' stroke-width='2'/%3E%3Cpath d='M1379-95l217-40-377 11z' fill='%2354573a' stroke='%2354573a' stroke-width='2'/%3E%3Cpath d='M-51 591l-10 90 121-71z' fill='%23a4946e' stroke='%23a4946e' stroke-width='2'/%3E%3Cpath d='M-125 594l64 87 10-90z' fill='%239b8e6c' stroke='%239b8e6c' stroke-width='2'/%3E%3Cpath d='M-3 192l-79 64 111-32z' fill='%23b68949' stroke='%23b68949' stroke-width='2'/%3E%3Cpath d='M-55 475l-70 119 74-3z' fill='%23aa9474' stroke='%23aa9474' stroke-width='2'/%3E%3Cpath d='M-53 144l-29 112 79-64z' fill='%23ae8140' stroke='%23ae8140' stroke-width='2'/%3E%3Cpath d='M-53 144l50 48L17 92z' fill='%23ad772f' stroke='%23ad772f' stroke-width='2'/%3E%3Cpath d='M-102 71l49 73 70-52z' fill='%23a16820' stroke='%23a16820' stroke-width='2'/%3E%3Cpath d='M79-52L-5 27l121-67z' fill='%23985c13' stroke='%23985c13' stroke-width='2'/%3E%3Cpath d='M1603 559l-83 83 165 27z' fill='%23568c81' stroke='%23568c81' stroke-width='2'/%3E%3Cpath d='M1691 612l10-158-98 105z' fill='%23699086' stroke='%23699086' stroke-width='2'/%3E%3Cpath d='M1652 338l55 11-59-178z' fill='%237a876a' stroke='%237a876a' stroke-width='2'/%3E%3Cpath d='M-82 256l-16 63 155-39z' fill='%23b98f58' stroke='%23b98f58' stroke-width='2'/%3E%3Cpath d='M-98 319l-6 53 94 38z' fill='%23b9956b' stroke='%23b9956b' stroke-width='2'/%3E%3Cpath d='M1685 669l-165-27 86 100z' fill='%23448579' stroke='%23448579' stroke-width='2'/%3E%3Cpath d='M1701 454l6-105-55-11z' fill='%237c907f' stroke='%237c907f' stroke-width='2'/%3E%3Cpath d='M1390 1103l85-50-134-3z' fill='%2306564c' stroke='%2306564c' stroke-width='2'/%3E%3Cpath d='M1698 830l-13-161-79 73z' fill='%2330756a' stroke='%2330756a' stroke-width='2'/%3E%3Cpath d='M79-52L-23-92-5 27z' fill='%238e530d' stroke='%238e530d' stroke-width='2'/%3E%3Cpath d='M201-145l-105-6 20 111z' fill='%238d5816' stroke='%238d5816' stroke-width='2'/%3E%3Cpath d='M584-148l-488-3 105 6z' fill='%23946c32' stroke='%23946c32' stroke-width='2'/%3E%3Cpath d='M1585 857l113-27-92-88z' fill='%231b685e' stroke='%231b685e' stroke-width='2'/%3E%3Cpath d='M1475 1053l86-98-40-39z' fill='%2301564c' stroke='%2301564c' stroke-width='2'/%3E%3Cpath d='M-140 469l15 125 70-119z' fill='%23ab9276' stroke='%23ab9276' stroke-width='2'/%3E%3Cpath d='M-81 866l138-67-77-29z' fill='%2377754f' stroke='%2377754f' stroke-width='2'/%3E%3Cpath d='M-150 165l52 154 16-63z' fill='%23a9834c' stroke='%23a9834c' stroke-width='2'/%3E%3Cpath d='M-150 165l46 207 6-53z' fill='%23ac8756' stroke='%23ac8756' stroke-width='2'/%3E%3Cpath d='M-150 165l10 304 36-97z' fill='%23af8d62' stroke='%23af8d62' stroke-width='2'/%3E%3Cpath d='M-104 372l-36 97 85 6z' fill='%23b69577' stroke='%23b69577' stroke-width='2'/%3E%3Cpath d='M1390 1103l64 27 21-77z' fill='%23015147' stroke='%23015147' stroke-width='2'/%3E%3Cpath d='M1673 1017l-39-76-73 14z' fill='%23004b40' stroke='%23004b40' stroke-width='2'/%3E%3Cpath d='M767 1153l687-23-503-24z' fill='%23468377' stroke='%23468377' stroke-width='2'/%3E%3Cpath d='M18 1012l156-8-93-134z' fill='%236c653c' stroke='%236c653c' stroke-width='2'/%3E%3Cpath d='M204 1073l-104 24 198 17z' fill='%236c6336' stroke='%236c6336' stroke-width='2'/%3E%3Cpath d='M18 1012l63-142-96 99z' fill='%23655f38' stroke='%23655f38' stroke-width='2'/%3E%3Cpath d='M-15 969l96-99-162-4z' fill='%2369643f' stroke='%2369643f' stroke-width='2'/%3E%3Cpath d='M-81 866l61-96-71 78z' fill='%236c6c4b' stroke='%236c6c4b' stroke-width='2'/%3E%3Cpath d='M-53 144l-97 21 68 91z' fill='%23a5793b' stroke='%23a5793b' stroke-width='2'/%3E%3Cpath d='M-5 27l-97 44L17 92z' fill='%239c6118' stroke='%239c6118' stroke-width='2'/%3E%3Cpath d='M-99-24l-3 95 97-44z' fill='%238e5613' stroke='%238e5613' stroke-width='2'/%3E%3Cpath d='M1673 1017l-112-62 53 156z' fill='%23004136' stroke='%23004136' stroke-width='2'/%3E%3Cpath d='M1561 955l73-14-49-84z' fill='%2304584d' stroke='%2304584d' stroke-width='2'/%3E%3Cpath d='M-91 848l71-78-126-68z' fill='%23757554' stroke='%23757554' stroke-width='2'/%3E%3Cpath d='M96-151L-23-92 79-52z' fill='%23844f0f' stroke='%23844f0f' stroke-width='2'/%3E%3Cpath d='M-146 702l126 68-41-89z' fill='%2384815e' stroke='%2384815e' stroke-width='2'/%3E%3Cpath d='M-125 594l-21 108 85-21z' fill='%238c8767' stroke='%238c8767' stroke-width='2'/%3E%3Cpath d='M-140 469l-6 233 21-108z' fill='%23988b6f' stroke='%23988b6f' stroke-width='2'/%3E%3Cpath d='M1634 941l64-111-113 27z' fill='%230d5c51' stroke='%230d5c51' stroke-width='2'/%3E%3Cpath d='M1685 669l13 161-7-218z' fill='%233d7f72' stroke='%233d7f72' stroke-width='2'/%3E%3Cpath d='M1691 612l7 218 3-376z' fill='%2353877d' stroke='%2353877d' stroke-width='2'/%3E%3Cpath d='M1701 454l-3 376 9-481z' fill='%23698f86' stroke='%23698f86' stroke-width='2'/%3E%3Cpath d='M1546-30l50-105-89 33z' fill='%234e4929' stroke='%234e4929' stroke-width='2'/%3E%3Cpath d='M1648 171l54-115-139 80z' fill='%236d673b' stroke='%236d673b' stroke-width='2'/%3E%3Cpath d='M1707 349l-5-293-54 115z' fill='%23737850' stroke='%23737850' stroke-width='2'/%3E%3Cpath d='M1683-31l-87-104-50 105z' fill='%234e4623' stroke='%234e4623' stroke-width='2'/%3E%3Cpath d='M1507-102l89-33-217 40z' fill='%234d4c2f' stroke='%234d4c2f' stroke-width='2'/%3E%3Cpath d='M1219-124l377-11-1012-13z' fill='%2373775a' stroke='%2373775a' stroke-width='2'/%3E%3Cpath d='M-175-139l25 304 48-94z' fill='%23845112' stroke='%23845112' stroke-width='2'/%3E%3Cpath d='M-102 71l-48 94 97-21z' fill='%239b6928' stroke='%239b6928' stroke-width='2'/%3E%3Cpath d='M-140 469l-31 407 25-174z' fill='%237f7f62' stroke='%237f7f62' stroke-width='2'/%3E%3Cpath d='M1702 56l-19-87-137 1z' fill='%235a4e26' stroke='%235a4e26' stroke-width='2'/%3E%3Cpath d='M-23-92l-76 68 94 51z' fill='%23874e0a' stroke='%23874e0a' stroke-width='2'/%3E%3Cpath d='M-126 975l111-6-66-103z' fill='%23585636' stroke='%23585636' stroke-width='2'/%3E%3Cpath d='M-126 975l109 80 2-86z' fill='%23544d2b' stroke='%23544d2b' stroke-width='2'/%3E%3Cpath d='M-15 969l-2 86 35-43z' fill='%2359502a' stroke='%2359502a' stroke-width='2'/%3E%3Cpath d='M18 1012l-35 43 117 42z' fill='%23594d25' stroke='%23594d25' stroke-width='2'/%3E%3Cpath d='M-171 876l90-10-10-18z' fill='%235e6042' stroke='%235e6042' stroke-width='2'/%3E%3Cpath d='M1702 56l-9-120-10 33z' fill='%23584c25' stroke='%23584c25' stroke-width='2'/%3E%3Cpath d='M1683-31l10-33-97-71z' fill='%234a4220' stroke='%234a4220' stroke-width='2'/%3E%3Cpath d='M1634 941l39 76 25-187z' fill='%23015147' stroke='%23015147' stroke-width='2'/%3E%3Cpath d='M1614 1111l-53-156-86 98z' fill='%2300473c' stroke='%2300473c' stroke-width='2'/%3E%3Cpath d='M1454 1130l160-19-139-58z' fill='%2300493e' stroke='%2300493e' stroke-width='2'/%3E%3Cpath d='M-150 165l-21 711 31-407z' fill='%23a48e74' stroke='%23a48e74' stroke-width='2'/%3E%3Cpath d='M-146 702l-25 174 80-28z' fill='%2363694b' stroke='%2363694b' stroke-width='2'/%3E%3Cpath d='M-171 876l45 99 45-109z' fill='%2355573a' stroke='%2355573a' stroke-width='2'/%3E%3Cpath d='M1614 1111l80-4-21-90z' fill='%23003c30' stroke='%23003c30' stroke-width='2'/%3E%3Cpath d='M1673 1017l21 90 4-277z' fill='%2300483d' stroke='%2300483d' stroke-width='2'/%3E%3Cpath d='M1698 830l-4 277 13-758z' fill='%232c7267' stroke='%232c7267' stroke-width='2'/%3E%3Cpath d='M1454 1130l240-23-80 4z' fill='%23004035' stroke='%23004035' stroke-width='2'/%3E%3Cpath d='M-23-92l-152-47 76 115z' fill='%23714108' stroke='%23714108' stroke-width='2'/%3E%3Cpath d='M-99-24l-76-115 73 210z' fill='%23794609' stroke='%23794609' stroke-width='2'/%3E%3Cpath d='M-150 165l-25-304 4 1015z' fill='%23a58558' stroke='%23a58558' stroke-width='2'/%3E%3Cpath d='M96-151l-271 12 152 47z' fill='%23714108' stroke='%23714108' stroke-width='2'/%3E%3Cpath d='M-171 876l-16 273 61-174z' fill='%23434327' stroke='%23434327' stroke-width='2'/%3E%3Cpath d='M-126 975l-61 174 170-94z' fill='%23443f1f' stroke='%23443f1f' stroke-width='2'/%3E%3Cpath d='M-17 1055l-170 94 287-52z' fill='%23504621' stroke='%23504621' stroke-width='2'/%3E%3Cpath d='M100 1097l-287 52 485-35z' fill='%235d5228' stroke='%235d5228' stroke-width='2'/%3E%3Cpath d='M298 1114l-485 35 680-25z' fill='%236c6336' stroke='%236c6336' stroke-width='2'/%3E%3Cpath d='M-175-139l-12 1288 16-273z' fill='%23878368' stroke='%23878368' stroke-width='2'/%3E%3C/svg%3E") !important;
+}
+}

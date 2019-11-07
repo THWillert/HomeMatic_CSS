@@ -1,22 +1,22 @@
 @-moz-document url-prefix("http://192.168.178.23/"), url-prefix("http://192.168.178.23/logout"), url-prefix("http://192.168.178.23/login") {
 /* Changelog:
 V0.54
-    * Layout (Programme) für Ausdrucke angepaßt
-    * Geräte Einstellungen überarbeitet
+    * Layout (Programme) fÃ¼r Ausdrucke angepaÃŸt
+    * GerÃ¤te Einstellungen Ã¼berarbeitet
 
 V0.53:
 	* Fehlermeldung beim Import beseitigt (Stylus 1.5.2)
 
 V0.52:
-    * Logout / Login-Seiten überarbeitet
+    * Logout / Login-Seiten Ã¼berarbeitet
 
 V0.51:
 	* Lade-Animationen durch SVG-Animation ersetzt
-	* Dialog für Addons ist nun scrollbar
+	* Dialog fÃ¼r Addons ist nun scrollbar
 	* Tabelle System-Variablen-Status korrigiert
 
 V0.5:
-	* Dialoge angepaßt:
+	* Dialoge angepaÃŸt:
 		- "Zeitmodul einstellen"
 		- "Sicherheit"
 		- "Netzwerkeinstellungen"
@@ -28,13 +28,13 @@ V0.5:
 
 V0.4:
 	* Angefangen Farben und Werte in CSS-Variablen zu defninieren (einfachere Anpassung)
-	* Dialog für "Geräte anlernen" überarbeitet
-	* Tabellen der Einstellungen überarbeitet (noch nicht vollständig)
+	* Dialog fÃ¼r "GerÃ¤te anlernen" Ã¼berarbeitet
+	* Tabellen der Einstellungen Ã¼berarbeitet (noch nicht vollstÃ¤ndig)
 
 ToDo:
 	* Korrektur der "fehlenden" Buttons in manchen Dialogen
 	* Korrektur Dimmer/RGB-Control
-	* Alle Farben, Radien u.ä. ale Variablen festlegen
+	* Alle Farben, Radien u.Ã¤. ale Variablen festlegen
 	* Restliche Tabellen anpassen
 	* Dialoge anpassen
 	* Buttons optimieren
@@ -45,7 +45,7 @@ ToDo:
 
 */
 
-/* Variablen für einfache Änderungen des Stils*/
+/* Variablen fÃ¼r einfache Ã„nderungen des Stils*/
 :root {
 	/* ================================================================================== buttons select rsw.
 	linear-gradient( to bottom, var(--dark_00), var(--dark_01))  */
@@ -85,7 +85,7 @@ ToDo:
 	--pushed_color_shadow: rgba(0, 255, 141, .6); /* var(--pushed_color_shadow) */
 
 	/* =================================================================================
-	oberfläche */
+	oberflÃ¤che */
 	--transparent_dark: rgba(46, 51, 56, .7); /* var(--transparent_dark) */
 
 	--bg_dark: #272b30; 	/* var(--bg_dark) */
@@ -104,7 +104,7 @@ ToDo:
 	--footer_shadow-blur: 10px; /* var(--footer_shadow-blur) */
 	--footer_shadow_color: rgba(0, 0, 0, .5); /* var(--footer_shadow_color) */
 
-	/* tabellen, menü, filter dialog var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color) */
+	/* tabellen, menÃ¼, filter dialog var(--table_shadow-x) var(--table_shadow-y) var(--table_shadow-blur) var(--table_shadow_color) */
 	--table_shadow-x: 5px; /* var(--table_shadow-x) */
 	--table_shadow-y: 5px; /* var(--table_shadow-y) */
 	--table_shadow-blur: 20px; /* var(--table_shadow-blur) */
@@ -115,7 +115,7 @@ ToDo:
 
 }
 
-/* Einfache Druckansicht (+ In FF Hintergrund / Bilder nicht drucken auswählen) */
+/* Einfache Druckansicht (+ In FF Hintergrund / Bilder nicht drucken auswÃ¤hlen) */
 @media print {
     *{
     background-color: white !important;
@@ -127,7 +127,7 @@ ToDo:
 }
 
 
-/* Hintergrund abdunkeln für Dialoge */
+/* Hintergrund abdunkeln fÃ¼r Dialoge */
     #ChannelConfigDialogLayer,
 	#DeviceConfigDialogLayer,
 	.YesNoDialogLayer,
@@ -287,7 +287,7 @@ input[id$="_tmp"]:focus,
 
 input[type=text][disabled=disabled] { opacity: 0.6 }
 
-input[name="P1_temp"], input[id="global_address"], input[id="global_iface"] {display: none !important} /* temporäre Temperatur inputs - Thermostate ... */
+input[name="P1_temp"], input[id="global_address"], input[id="global_iface"] {display: none !important} /* temporÃ¤re Temperatur inputs - Thermostate ... */
 }
 
 @-moz-document url-prefix("http://192.168.178.23/"), url-prefix("http://192.168.178.23/logout"), url-prefix("http://192.168.178.23/login") {
@@ -296,7 +296,7 @@ input[name="P1_temp"], input[id="global_address"], input[id="global_iface"] {dis
 }
 
 img {
-	filter: blur(0.5px) /* Bilder leicht glätten */
+	filter: blur(0.5px) /* Bilder leicht glÃ¤tten */
 }
 
 /* ladekringel */
@@ -304,7 +304,7 @@ img[src="/ise/img/loading.gif"], img[src="/ise/img/ajaxload.gif"] {padding-left:
 }
 .CLASS11101{ min-width: 30em} /* navigation */
 
-/* Vorläufig - das Orginal Bild muss noch weg ... */
+/* VorlÃ¤ufig - das Orginal Bild muss noch weg ... */
 /* "LEDs" Source: http://cssdeck.com/labs/css-leds */
 .CLASS11106 { width:12px !important; height:12px !important}
 
@@ -327,16 +327,16 @@ img[src="/ise/img/loading.gif"], img[src="/ise/img/ajaxload.gif"] {padding-left:
 	border-radius: 50%;}
 
 
-/*  Vorläufig */
+/*  VorlÃ¤ufig */
 .ButtonStatusRoomsPicSelected{ border: 2px var(--bg_medium) solid !important; }
 
 td { padding: 0.25em !important}
 
 .filterTable td { height: auto !important}
 .CLASS05211 {white-space: nowrap !important} /* checkbox + text */
-/* Alarm, Rauchmelder, Vorschau, Geräteliste ---------------------------------------------------------------------- */
+/* Alarm, Rauchmelder, Vorschau, GerÃ¤teliste ---------------------------------------------------------------------- */
 
-/* geräte */
+/* gerÃ¤te */
 div[id$="Thumbnail"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1),
 div[id$="Thumbnail"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(2),
 div[id^="picDiv"] > div:nth-child(1) > div:nth-child(1),
@@ -389,7 +389,7 @@ img[id$="checkItem"], img[id$="dangerItem"], img[src$="_thumb.png"]{
 
 /* helle Schrift */
 .CLASS05104, /* Zeitmodul einstellen */
-.CLASS03502 /*  letzte Änderung */
+.CLASS03502 /*  letzte Ã„nderung */
 { color: var(--color_light) !important}
 
 /* scrollen in Dialogen */
@@ -609,7 +609,7 @@ h1 u {
 .StdTable  tr {display: flex !important;  flex-direction: row; flex-wrap: wrap; margin: auto !important; justify-content: left; align-content: flex-start !important;; 	}
 .StdTable   td { margin: 5px !important; flex-grow:1}
 
-.CLASS05401, .CLASS05400 {height: auto !important} /* Programme und Verknüpfungen */
+.CLASS05401, .CLASS05400 {height: auto !important} /* Programme und VerknÃ¼pfungen */
 
 /* Status und Bedienung -------------------------- */
 #tblStatus .CLASS05700 {width: auto; display: flex !important; empty-cells: hide; margin: auto !important;}
@@ -721,7 +721,7 @@ h1 u {
 .CLASS05205,
 .CLASS05202,
 .CLASS21116,
-.CLASS21207, .CLASS21212, /* geräte anlernen */
+.CLASS21207, .CLASS21212, /* gerÃ¤te anlernen */
 .Sort,
 .filterTable th,
 .thCell,
@@ -788,9 +788,9 @@ input[type=button] {
 	appearance: none;
 }
 
-/* Höhe auto, Weite 70%*/
+/* HÃ¶he auto, Weite 70%*/
 
-.CLASS21210, /* Geräte anlernen */
+.CLASS21210, /* GerÃ¤te anlernen */
 .StdTableBtn{
 	display: inline-block !important;
 	width: 70% !important;
@@ -810,7 +810,7 @@ input[type=button] {
 }
 
 
-/* button normal 70%, Zeilen-Höhe 1em*/
+/* button normal 70%, Zeilen-HÃ¶he 1em*/
 
 .CLASS21412, /* Zusatzsoftware installieren */
 .CLASS21215,
@@ -979,7 +979,7 @@ input[type=file],
 	margin: auto
 }
 
-/* Vorläufig: Up/Down/Enter */
+/* VorlÃ¤ufig: Up/Down/Enter */
 .CLASS02548 {background: linear-gradient( to bottom, var(--dark_01), var(--dark_00) ) !important;}
 .CLASS02543 { border: 1px solid var(--border_dark) !important;  mix-blend-mode: multiply; padding: 3px; border-radius: 0.25em; margin: 3px}
 .CLASS02543:hover {box-shadow: 0px 0px 15px 0px var(--hover_color); background: linear-gradient( to bottom, var(--dark_02), var(--dark_03) ) !important; mix-blend-mode: lighten;}
@@ -1111,7 +1111,7 @@ div[id^="btn-user"]:hover, #btnLogin:hover, /* login */
 .CLASS21404:hover,
 .CLASS21412:hover,
 .ControlBtnOff:hover,
-.CLASS21210:hover, /* Geräte anlernen */
+.CLASS21210:hover, /* GerÃ¤te anlernen */
 #TestButtonCH2104:hover,
 #ToggleButtonChannelView:hover,
 #btnStartScanGateway_lightify:hover,
@@ -1304,19 +1304,19 @@ input[type=file]:hover {
 .CLASS20817,
 .CLASS20811,
 .CLASS20909,
-.CLASS21205, /* geräte anlernen */
+.CLASS21205, /* gerÃ¤te anlernen */
 .CLASS20904,
 .CLASS20905,
 .CLASS21504,
 .CLASS21505,
 .CLASS21506,
-.CLASS21208, /* geräte anlernen */
+.CLASS21208, /* gerÃ¤te anlernen */
 .UIFrameContent {
 	background-color:  var(--dark_05) !important;
 	color: var(--color_light) !important;
 }
 
- .CLASS21206, .CLASS21209 /* geräte anlernen */
+ .CLASS21206, .CLASS21209 /* gerÃ¤te anlernen */
 { background-color: transparent !important}
 
 /* alert */

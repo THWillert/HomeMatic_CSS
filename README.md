@@ -47,6 +47,8 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
 
 ## ToDo
 
+Die Reihenfolge entspricht keiner Priorität.
+
  - [ ] Anleitung vervollständigen
  - [ ] CSS-Variablen vervollständigen
  - [ ] Status / Geräte-Controls überarbeiten
@@ -57,7 +59,8 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  - [ ] Direkte Verknüpfungen
  - [ ] Einstellungen - Unterpunkte Header
  - [ ] Popup - Allgemeine Geräteeinstellungen
- - [ ] Pop
+ - [ ] Popups - Kanalauswahl / Geräteauswahl usw.
+ - [ ] Geräteeinstellungen / Inputs
 
  ## Author
  Thorsten Willert
@@ -68,6 +71,6 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDIwMTMzMjYsLTE5OTQ1NzQ1NTIsLTg2MT
-k2NTU1NF19
+eyJoaXN0b3J5IjpbNzIzODQwMzkxLC0xOTk0NTc0NTUyLC04Nj
+E5NjU1NTRdfQ==
 -->

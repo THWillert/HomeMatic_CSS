@@ -29,12 +29,14 @@ Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
 *hier kommt noch ein Bild*
 
- 1. Changelog, CSS-Variablen zum einfachen anpassen des Stils und der Stil fürden Druck
+ 1. Changelog, CSS-Variablen zum einfachen anpassen des Stils und der Stil für den Druck
  2. Allgemeine Stile
- 3. Die restlichen Stile
- 4. Das Hintergrundbild
- . 
+ 3. die restlichen Stile
+ 4. das Hintergrundbild
+ 
+ ### Diskussion
+Bitte auch die Diskussion dazu im HomeMatic-Forum 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExMTA2NTgxNiwyMzU0NTE2NTIsLTEyNT
+eyJoaXN0b3J5IjpbMjE0NDU2OTUzMywyMzU0NTE2NTIsLTEyNT
 QyNDI1MjVdfQ==
 -->

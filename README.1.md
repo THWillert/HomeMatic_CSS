@@ -12,8 +12,9 @@ erhält dadurch eine modernes Design:
 ![WebUI Neu](/images/WebUI_Neues_Design_1_sm.png)
 
 ### Voraussetzungen
-Die CSS-Datei benötigt _nicht_ keine Installation auf der CCU.
-Stattdessen wird diese in FireFox-Addon 
+Die CSS-Datei benötigt _nicht_ keine Installation auf der CCU-WebUI.
+Stattdessen wird diese über FireFox-Addon Stylus eingebunden.
+Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU-We geladen werden direkt im Browser.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2Nzk1NjIwNF19
+eyJoaXN0b3J5IjpbMTUzMTk1MTUxNV19
 -->

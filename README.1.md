@@ -55,6 +55,8 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  - [ ] Status / Favoriten
  - [ ] Status / Systemprotokoll - Header
  - [ ] Direkte Verknüpfungen
+ - [ ] Einstellungen - Unterpunkte Header
+ - [ ] Popup - Allgemeine Geräteeinstellungen
  - [ ] 
 
  ## Author
@@ -66,6 +68,6 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY4NTIwNjM5LDEwODAyOTQwOTMsLTE5OD
+eyJoaXN0b3J5IjpbNDk4NDg5Nzk1LDEwODAyOTQwOTMsLTE5OD
 Y4MTkxNDUsMjE0NTU3MTQwM119
 -->

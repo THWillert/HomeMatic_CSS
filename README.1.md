@@ -12,10 +12,10 @@ für die etwas in die Jahre gekommene, Oberfläche der HomeMatic WebUI:
 ![WebUI Original](/images/WebUI_Original_sm.png)
 
 ### Voraussetzungen
-Die CSS-Datei benötigt  _keine_ Installation auf der CCU-WebUI.
+Die CSS-Datei benötigt  _keine_ Installation auf der CCU.
 Stattdessen wird diese über FireFox-Addon Stylus eingebunden.
 [Stylus](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
-Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU-WebUI geladen werden, direkt im Browser.
+Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU geladen werden, direkt im Browser.
 
 ### Installation
 Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
@@ -50,6 +50,6 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODIzNjE3Mzk1LDEwODAyOTQwOTMsLTE5OD
-Y4MTkxNDUsMjE0NTU3MTQwM119
+eyJoaXN0b3J5IjpbLTk3NDgzNTIwMywxMDgwMjk0MDkzLC0xOT
+g2ODE5MTQ1LDIxNDU1NzE0MDNdfQ==
 -->

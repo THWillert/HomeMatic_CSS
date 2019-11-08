@@ -57,7 +57,7 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] auf ein Addon "umbauen"zweiter Design: "Hell"
 
 Optional:
- - [ ] ?
+ - [ ] als Addon?
  - [ ] wenn es ein Addon wird: Die Geräte-Bilder durch Fotos ersetzen?
  - [ ] Auf CUx erweitern?Inputs
 
@@ -70,5 +70,5 @@ Optional:
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDE0NDIwODFdfQ==
+eyJoaXN0b3J5IjpbMTY2MjI5NzkyN119
 -->

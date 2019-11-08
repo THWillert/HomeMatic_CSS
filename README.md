@@ -77,6 +77,5 @@ Optional:
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMTIwNDQ4LDkwMjc0NDcxNSwtMTk5ND
-U3NDU1MiwtODYxOTY1NTU0XX0=
+eyJoaXN0b3J5IjpbMTkwMTIwNDQ4XX0=
 -->

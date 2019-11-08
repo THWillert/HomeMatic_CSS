@@ -2,8 +2,7 @@
 [CSS](https://de.wikipedia.org/wiki/Cascading_Style_SDatei für die HomeMatic CCU erbindung mit dem FireFox Addon Stylus.
 
 ## Übersicht
-Ein
-Die modernes Design:
+Ein modernes Design:
 
 ![WebUI Neu](/images/WebUI_Neues_Design_1_sm.png)
 
@@ -20,11 +19,7 @@ Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU geladen wer
 ### Installation
 Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
 
-![WebUI Original](/images/HomeMatic_CSS__Stylus_bearbeitg)n noch Bil noch Bil:
-
-e meoclgen nomeilCSS-Variablen.png)
-
-der*
+![WebUI Original](/images/HomeMatic_CSS__Stylus_bearbeiten.png)
 
 danach ist eine Anpassung der IP-Adressen, auf die IP bzw. URL der CCU, in den einzelnen Code-Bereichen nötig:
 
@@ -61,12 +56,12 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] Popup - Allgemeine Geräteeinstellungen
  - [ ] Popups - Kanalauswahl / Geräteauswahl usw.
  - [ ] Geräteeinstellungen / Formular-Inputs verbergen
- - [ ] zweiter Design: "Hell"
+ - [ ] auf ein Addon "umbauen"zweiter Design: "Hell"
 
 Optional:
- - [ ] auf ein Addon "umbauen"?
+ - [ ] ?
  - [ ] wenn es ein Addon wird: Die Geräte-Bilder durch Fotos ersetzen?
- - [ ] Auf CUx erweitern?
+ - [ ] Auf CUx erweitern?Inputs
 
  ## Author
  Thorsten Willert
@@ -77,6 +72,5 @@ Optional:
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1MjAzMzMwMywxMDgwMjk0MDkzLC0xOT
-g2ODE5MTQ1LDIxNDU1NzE0MDNdfQ==
+eyJoaXN0b3J5IjpbMTg0Njk4MTc5OV19
 -->

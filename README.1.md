@@ -45,9 +45,9 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  [Homepage](http://www.thorsten-willert.de/)
 
  ## Lizenz
- Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)
+ Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyNjM4MDgzLC0xOTg2ODE5MTQ1LDIxND
-U1NzE0MDNdfQ==
+eyJoaXN0b3J5IjpbMTIwNzc5ODU4OSwtMTk4NjgxOTE0NSwyMT
+Q1NTcxNDAzXX0=
 -->

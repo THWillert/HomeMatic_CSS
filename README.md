@@ -33,7 +33,7 @@ Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf
 ### Anpassungen
 Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
- 1. Changelog, CSS-Variablen zum einfachen Anpassen und d Druckr ![Variablen](/images/HomeMatic_CSS__CSS-Variablen.png)![CSS_Print](/images/HomeMatic_CSS__Print.png)
+ 1. Changelog, CSS-Variablen zum einfachen Anpassen und des Drucklayouts ![Variablen](/images/HomeMatic_CSS__CSS-Variablen.png)![CSS_Print](/images/HomeMatic_CSS__Print.png)
  2.  Allgemeine Stile
  3. die restlichen Stile
  4. das Hintergrundbild

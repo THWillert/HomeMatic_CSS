@@ -61,7 +61,8 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] Popup - Allgemeine Geräteeinstellungen
  - [ ] Popups - Kanalauswahl / Geräteauswahl usw.
  - [ ] Geräteeinstellungen / Formular-Inputs verbergen
- - [ ] Auf 
+ - [ ] auf ein Addon "umbauen"?
+ - [ ] Auf CUx erweitern?
 
  ## Author
  Thorsten Willert
@@ -72,6 +73,6 @@ Die Reihenfolge entspricht keiner Priorität.
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTkyMDc5MjksLTE5OTQ1NzQ1NTIsLT
+eyJoaXN0b3J5IjpbLTE2MTc2OTI5NDAsLTE5OTQ1NzQ1NTIsLT
 g2MTk2NTU1NF19
 -->

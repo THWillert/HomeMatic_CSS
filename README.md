@@ -30,8 +30,6 @@ Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf
 ### Anpassungen
 Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
-![WebUI Original](/images/HomeMatic_CSS__CSS-Varia
-
  1. Changelog, CSS-Variablen zum einfachen npassen ue nd den Drue ndetiren rck ![WebUI Original](/images/HomeMatic_CSS__CSS-Variablen.png)![WebUI Original](/images/HomeMatic_CSS__Print.png)
  32. Allgemeine Stile
  . de restlichen Stile
@@ -72,5 +70,5 @@ Optional:
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MjM5NjUwNzNdfQ==
+eyJoaXN0b3J5IjpbLTEzNDE0NDIwODFdfQ==
 -->

@@ -2,18 +2,13 @@
 CSS Datei für die HomeMatic CCU-WebUI in Verbindung mit dem FireFox Addon Stylus.
 
 ## Übersicht
-
-Die,Ein modernes Design:
+Ein modernes Design:
 
 ![WebUI Neu](/images/WebUI_Neues_Design_1_sm.png)
 
 für die etwas in die Jahre gekommene, Oberfläche der HomeMatic WebUI:
 
 ![WebUI Original](/images/WebUI_Original_sm.png)
-
-erhält dadurch eine modernes Design:
-
-![WebUI Neu](/images/WebUI_Neues_Design_1_sm.png)
 
 ### Voraussetzungen
 Die CSS-Datei benötigt  _nicht_ keine_ Installation auf der CCU-WebUI.
@@ -52,5 +47,5 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze sSteht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzkzNzMzNCwtNDU4MjQwMDczXX0=
+eyJoaXN0b3J5IjpbLTQyNzE5MDExOF19
 -->

@@ -24,7 +24,7 @@ Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
 
 *hier kommen noch Bilder*
 
-danach ist noch eine Anpassung der IP-Adressen in den einzelnen Code-Bereichen nötig:
+danach ist noch eine Anpassung der IP-Adressen, auf die IP bzw. URL der CCU, in den einzelnen Code-Bereichen nötig:
 
 ![WebUI Original](/images/HomeMatic_CSS__Gilt_fuer.png)
 
@@ -52,5 +52,5 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTA1MDUyNzFdfQ==
+eyJoaXN0b3J5IjpbLTMwOTkyMjg1NF19
 -->

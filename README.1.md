@@ -14,11 +14,13 @@ erhält dadurch eine modernes Design:
 ### Voraussetzungen
 Die CSS-Datei benötigt  _keine_ Installation auf der CCU-WebUI.
 Stattdessen wird diese über FireFox-Addon Stylus eingebunden.
+[Stylus](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
 Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU-WebUI geladen werden direkt im Browser.
 
 ### Installation
+Nach der Installation von Stylus wird die 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNzA3MzBdfQ==
+eyJoaXN0b3J5IjpbLTExMDA2MjY0Nl19
 -->

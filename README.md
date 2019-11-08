@@ -30,10 +30,10 @@ Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf
 ### Anpassungen
 Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
- 1. Changelog, CSS-Variablen zum einfachen npassen ue nd den Drue ndetiren rck ![WebUI Original](/images/HomeMatic_CSS__CSS-Variablen.png)![WebUI Original](/images/HomeMatic_CSS__Print.png)
- 32. Allgemeine Stile
- . de restlichen Stile
- . ds Hintergrundbild
+ 1. Changelog, CSS-Variablen zum einfachen Anpassen ue nd denas Drue ndetiren rckck-Layout ![WebUI Original](/images/HomeMatic_CSS__CSS-Variablen.png)![WebUI Original](/images/HomeMatic_CSS__Print.png)
+ 32.  Allgemeine Stile
+ 3. die restlichen Stile
+ 4. das Hintergrundbild
  
  ## Diskussion / Vorschläge
 Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/forum/viewtopic.php?f=41&t=46033) beachten.
@@ -70,5 +70,5 @@ Optional:
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Nzg0MTc4M119
+eyJoaXN0b3J5IjpbMjE0MzgyMzg5NCwtMTY3ODQxNzgzXX0=
 -->

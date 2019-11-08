@@ -2,12 +2,11 @@
 [CSS](https://de.wikipedia.org/wiki/Cascading_Style_Sheets)-Datei für die HomeMatic CCU-WebUI in Verbindung mit dem FireFox Addon Stylus.
 
 ## Übersicht
-Ein
-Die modernes Design:
+Ein modernes Design:
 
 ![WebUI Neu](/images/WebUI_Neues_Design_1_sm.png)
 
-für die etwas in die Jahre gekommene, Oberfläche der HomeMatic WebUI:
+für die etwas in die Jahre gekommene Oberfläche der HomeMatic WebUI:
 
 ![WebUI Original](/images/WebUI_Original_sm.png)
 
@@ -41,6 +40,11 @@ Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
  ## Diskussion / Vorschläge
 Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/forum/viewtopic.php?f=41&t=46033) beachten.
 
+## ToDo
+
+ - [ ] CSS-Variablen vervollständigen
+ - [ ] 
+
  ## Author
  Thorsten Willert
 
@@ -50,6 +54,6 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAyMjQ0NTAwLDEwODAyOTQwOTMsLTE5OD
+eyJoaXN0b3J5IjpbMzU5MDc2NjQ4LDEwODAyOTQwOTMsLTE5OD
 Y4MTkxNDUsMjE0NTU3MTQwM119
 -->

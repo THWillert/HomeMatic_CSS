@@ -39,10 +39,12 @@ Bitte auch die Diskussion dazu im HomeMatic-Forum beachten.
 
  ## Author
  Thorsten Willert
+ 
+ [Homepage](http://www.thorsten-willert.de/)
 
  ## Lizenz
- Das ganze Steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)
+ Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMTA4Njk2Ml19
+eyJoaXN0b3J5IjpbLTE4OTE1OTIwMTNdfQ==
 -->

@@ -67,8 +67,8 @@ Optional:
  [Homepage](http://www.thorsten-willert.de/)
 
  ## Lizenz
- Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
+ Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2MjI5NzkyN119
+eyJoaXN0b3J5IjpbLTE2Nzg0MTc4M119
 -->

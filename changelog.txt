@@ -1,0 +1,42 @@
+V0.54
+    * Layout (Programme) für Ausdrucke angepaßt
+    * Geräte Einstellungen überarbeitet
+
+V0.53:
+	* Fehlermeldung beim Import beseitigt (Stylus 1.5.2)
+
+V0.52:
+    * Logout / Login-Seiten überarbeitet
+
+V0.51:
+	* Lade-Animationen durch SVG-Animation ersetzt
+	* Dialog für Addons ist nun scrollbar
+	* Tabelle System-Variablen-Status korrigiert
+
+V0.5:
+	* Dialoge angepaßt:
+		- "Zeitmodul einstellen"
+		- "Sicherheit"
+		- "Netzwerkeinstellungen"
+		- "Firewall"
+		- "Zusatzsoftware"
+		- "Kopplungen"
+		- "Tabellen" der Kategorien mit dynamischen Layout erweitert (geht nur Zeilenweise)
+	* Hintergrund-Bild: Base64 durch optmiertes SVG ersetzt (ca. -20kb)
+
+V0.4:
+	* Angefangen Farben und Werte in CSS-Variablen zu defninieren (einfachere Anpassung)
+	* Dialog für "Geräte anlernen" überarbeitet
+	* Tabellen der Einstellungen überarbeitet (noch nicht vollständig)
+
+ToDo:
+	* Korrektur der "fehlenden" Buttons in manchen Dialogen
+	* Korrektur Dimmer/RGB-Control
+	* Alle Farben, Radien u.ä. ale Variablen festlegen
+	* Restliche Tabellen anpassen
+	* Dialoge anpassen
+	* Buttons optimieren
+	* LEDs: Grafik durch CSS ersetzt
+	* optischer "Feinschliff" der Tabellen
+	* Optimierung der Definitionen
+    * Addon

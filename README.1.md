@@ -24,6 +24,8 @@ Nach der Installation von Stylus wird die CCS-Datei in Stylus importiertgeladen:
 
 danach ist noch eine Anpassung der IP-Adressen in den einzelnen Code-Bereichen nötig.
 
+Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf [YouTube](https://www.youtube.com/watch?v=nxAQbJ4O01g)
+
 ### Anpassungen
 Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
@@ -46,5 +48,5 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze sSteht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)
 . 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NzQ1NzY1Ml19
+eyJoaXN0b3J5IjpbMTEwODQwMjUyNSwxMDc3NDU3NjUyXX0=
 -->

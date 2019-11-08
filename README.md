@@ -46,8 +46,7 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
 
  ## Lizenz
  Das ganze sSteht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)
-. 
+.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwODQwMjUyNSwxMDc3NDU3NjUyLDg1Mz
-QxODUzNywzMTE4MjkxMDZdfQ==
+eyJoaXN0b3J5IjpbLTQ1ODI0MDA3M119
 -->

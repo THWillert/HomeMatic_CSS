@@ -20,6 +20,10 @@ Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
 
 ![Bearbeiten](/images/HomeMatic_CSS__Stylus_bearbeiten.png)
 
+und den Inhalt der CSS-Datei einfügen:
+
+![Einfuegen](/images/HomeMatic_CSS__Stylus_einfuegen.png)
+
 danach ist eine Anpassung der IP-Adressen, auf die IP bzw. URL der CCU, in den einzelnen Code-Bereichen nötig:
 
 ![IP](/images/HomeMatic_CSS__Gilt_fuer.png).

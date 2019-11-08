@@ -1,5 +1,5 @@
 # HomeMatic_CSS
-CSS Datei für die HomeMatic CCU-WebUI in Verbindung mit dem FireFox Addon Stylus.
+[CSS](https://de.wikipedia.org/wiki/Cascading_Style_Sheets)-Datei für die HomeMatic CCU-WebUI in Verbindung mit dem FireFox Addon Stylus.
 
 ## Übersicht
 Ein
@@ -50,6 +50,6 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3NDgzNTIwMywxMDgwMjk0MDkzLC0xOT
-g2ODE5MTQ1LDIxNDU1NzE0MDNdfQ==
+eyJoaXN0b3J5IjpbMzAyMjQ0NTAwLDEwODAyOTQwOTMsLTE5OD
+Y4MTkxNDUsMjE0NTU3MTQwM119
 -->

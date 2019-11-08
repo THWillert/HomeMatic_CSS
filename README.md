@@ -40,6 +40,11 @@ Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
  ## Diskussion / Vorschläge
 Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/forum/viewtopic.php?f=41&t=46033) beachten.
 
+## ToDo
+
+ - [ ] CSS-Variablen vervollständigen
+ - [ ] 
+
  ## Author
  Thorsten Willert
 
@@ -49,5 +54,5 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2MTk2NTU1NF19
+eyJoaXN0b3J5IjpbMzU5MDc2NjQ4LC04NjE5NjU1NTRdfQ==
 -->

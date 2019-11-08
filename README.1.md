@@ -12,7 +12,7 @@ erhält dadurch eine modernes Design:
 ![WebUI Neu](/images/WebUI_Neues_Design_1_sm.png)
 
 ### Voraussetzungen
-Die CSS-Datei benötigt  _keine_ Installation auf der CCU-WebUI.
+Die CSS-Datei benötigt  _nicht_ keine_ Installation auf der CCU-WebUI.
 Stattdessen wird diese über FireFox-Addon Stylus eingebunden.
 [Stylus](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
 Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU-WebUI geladen werden direkt im Browser.
@@ -20,9 +20,12 @@ Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU-WebUI gelad
 ### Installation
 Nach der Installation von Stylus wird die CCS-Datei in Stylus geladen:
 
-danach ist noch eine Anpassung der IP-Adressen in den einzelnen 
+## hier fehlt noch ein Bild
+
+danach ist noch eine Anpassung der IP-Adressen in den einzelnen Code-Bereichen nötig.
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NTA0OTcyXX0=
+eyJoaXN0b3J5IjpbLTE4MDUzNTQ3OThdfQ==
 -->

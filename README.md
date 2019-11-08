@@ -58,7 +58,7 @@ Die Reihenfolge entspricht keiner Priorität.
 Optional:
  - [ ] als Addon?
  - [ ] wenn es ein Addon wird: Die Geräte-Bilder durch Fotos ersetzen?
- - [ ] Auf CUx erweitern?Inputs
+ - [ ] Auf CUx erweitern?
 
  ## Author
  Thorsten Willert

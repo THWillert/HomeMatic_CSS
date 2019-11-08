@@ -61,7 +61,11 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] Popup - Allgemeine Geräteeinstellungen
  - [ ] Popups - Kanalauswahl / Geräteauswahl usw.
  - [ ] Geräteeinstellungen / Formular-Inputs verbergen
- - [ ] auf ein Addon "umbauen"?
+ - [ ] auf ein Addon "umbauen"zweiter Design: "Hell"
+
+Optional:
+ - [ ] ?
+ - [ ] wenn es ein Addon wird: Die Geräte-Bilder durch Fotos ersetzen?
  - [ ] Auf CUx erweitern?Inputs
 
  ## Author
@@ -73,6 +77,6 @@ Die Reihenfolge entspricht keiner Priorität.
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAyNzQ0NzE1LC0xNjE3NjkyOTQwLC0xOT
-k0NTc0NTUyLC04NjE5NjU1NTRdfQ==
+eyJoaXN0b3J5IjpbMTkwMTIwNDQ4LDkwMjc0NDcxNSwtMTk5ND
+U3NDU1MiwtODYxOTY1NTU0XX0=
 -->

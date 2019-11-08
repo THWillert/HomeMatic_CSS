@@ -18,9 +18,11 @@ Stattdessen wird diese über FireFox-Addon Stylus eingebunden.
 Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU-WebUI geladen werden direkt im Browser.
 
 ### Installation
-Nach der Installation von Stylus wird die 
+Nach der Installation von Stylus wird die CCS-Datei in Stylus geladen:
+
+danach ist noch eine Anpassung der IP-Adressen in den einzelnen 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTQyNDI1MjUsLTExMDA2MjY0Nl19
+eyJoaXN0b3J5IjpbMjA4NDc0NDM1NywtMTI1NDI0MjUyNV19
 -->

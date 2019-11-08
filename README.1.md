@@ -1,5 +1,5 @@
 # HomeMatic_CSS
-[CSS](https://de.wikipedia.org/wiki/Cascading_Style_SDatei für die HomeMatic CCU erbindung mit dem FireFox Addon Stylus.
+[CSS](https://de.wikipedia.org/wiki/Cascading_Style_Sheets)-Datei für die HomeMatic CCU erbindung mit dem FireFox Addon Stylus.
 
 ## Übersicht
 Ein modernes Design:
@@ -72,5 +72,5 @@ Optional:
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0Njk4MTc5OV19
+eyJoaXN0b3J5IjpbMjY1NDI0NDY4XX0=
 -->

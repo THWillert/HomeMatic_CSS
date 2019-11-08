@@ -18,11 +18,11 @@ Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU geladen wer
 ### Installation
 Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
 
-![WebUI Original](/s/HomeMatic_CSS__Stylus_bearbeiten.png)
+![Bearbeiten](/images/HomeMatic_CSS__Stylus_bearbeiten.png)
 
 danach ist eine Anpassung der IP-Adressen, auf die IP bzw. URL der CCU, in den einzelnen Code-Bereichen nötig:
 
-![WebUI Original](/s/HomeMatic_CSS__Gilt_fuer.png).
+![IP](/images/HomeMatic_CSS__Gilt_fuer.png).
 
 Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf [YouTube](https://www.youtube.com/watch?v=nxAQbJ4O01g)
 

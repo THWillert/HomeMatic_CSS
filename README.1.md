@@ -29,9 +29,14 @@ Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
 *hier kommt noch ein Bild*
 
- 1. Changelog und CSS-Variablen zum einfachen anpassen des Stils
- 2. 
+ 1. List item
+
+Changelog und CSS-Variablen zum einfachen anpassen des Stils
+ 3.  - List item
+ 4. 
+ 5.  Allgemeine Stile
+ 6. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM2NTg2NzkyXX0=
+eyJoaXN0b3J5IjpbLTI5NDU5MjA0M119
 -->

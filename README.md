@@ -20,9 +20,13 @@ Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU-WebUI gelad
 ### Installation
 Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
 
+![WebUI Original](/images/HomeMatic_CSS__CSS-Variablen.png)
+
 *hier kommen noch Bilder*
 
-danach ist noch eine Anpassung der IP-Adressen in den einzelnen Code-Bereichen nötig.
+danach ist noch eine Anpassung der IP-Adressen in den einzelnen Code-Bereichen nötig:
+
+![WebUI Original](/images/HomeMatic_CSS__Gilt_fuer.png)
 
 Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf [YouTube](https://www.youtube.com/watch?v=nxAQbJ4O01g)
 
@@ -48,6 +52,5 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5Mzk0NjQ3NiwxMDgwMjk0MDkzLC0yMD
-g2NDM2MTU3XX0=
+eyJoaXN0b3J5IjpbLTIwMzcyNDk1NzVdfQ==
 -->

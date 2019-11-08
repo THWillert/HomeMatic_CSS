@@ -42,7 +42,10 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
 
 ## ToDo
 
+ - [ ] Anleitung vervollständigen
  - [ ] CSS-Variablen vervollständigen
+ - [ ] Status / Geräte-Controls überarbeiten
+ - [ ] Status / Gewerke
  - [ ] 
 
  ## Author
@@ -54,6 +57,6 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU5MDc2NjQ4LDEwODAyOTQwOTMsLTE5OD
-Y4MTkxNDUsMjE0NTU3MTQwM119
+eyJoaXN0b3J5IjpbLTg1ODg0Nzg5NywxMDgwMjk0MDkzLC0xOT
+g2ODE5MTQ1LDIxNDU1NzE0MDNdfQ==
 -->

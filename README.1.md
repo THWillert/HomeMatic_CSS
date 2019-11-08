@@ -33,12 +33,10 @@ Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf
 ### Anpassungen
 Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
-![WebUI Original](/images/HomeMatic_CSS__CSS-Variablen.png)
-
- 1. Changelog, CSS-Variablen zum einfachen npassen en Druck
- 2. Allgemeine Stile
- 3. die restlichen Stile
- 4. das Hintergrundbild
+ 1. Changelog, CSS-Variablen zum einfachen npassen en Druck ![WebUI Original](/images/HomeMatic_CSS__CSS-Variablen.png)![WebUI Original](/images/HomeMatic_CSS__Print.png)
+ 3. Allgemeine Stile
+ 4. die restlichen Stile
+ 5. das Hintergrundbild
  
  ## Diskussion / Vorschläge
 Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/forum/viewtopic.php?f=41&t=46033) beachten.
@@ -52,6 +50,6 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwOTkyMjg1NCwxMDgwMjk0MDkzLC0xOT
-g2ODE5MTQ1LDIxNDU1NzE0MDNdfQ==
+eyJoaXN0b3J5IjpbODE0NzI3NzY5LDEwODAyOTQwOTMsLTE5OD
+Y4MTkxNDUsMjE0NTU3MTQwM119
 -->

@@ -18,18 +18,18 @@ Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU geladen wer
 ### Installation
 Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
 
-s/HomeMatic_CSS__Stylus_bearbeiten.png)
+![WebUI Original](/s/HomeMatic_CSS__Stylus_bearbeiten.png)
 
 danach ist eine Anpassung der IP-Adressen, auf die IP bzw. URL der CCU, in den einzelnen Code-Bereichen nötig:
 
-s/HomeMatic_CSS__Gilt_fuer.png).
+![WebUI Original](/s/HomeMatic_CSS__Gilt_fuer.png).
 
 Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf [YouTube](https://www.youtube.com/watch?v=nxAQbJ4O01g)
 
 ### Anpassungen
 Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
- 1. Changelog, CSS-Variablen zum einfachen Anpassen und d Druckr ![WebUI Original](/imageiablen.png)![WebUI Original](/imageint.png)
+ 1. Changelog, CSS-Variablen zum einfachen Anpassen und d Druckr ![Variablen](/images/HomeMatic_CSS__CSS-Variablen.png)![CSS_Print](/images/HomeMatic_CSS__Print.png)
  2.  Allgemeine Stile
  3. die restlichen Stile
  4. das Hintergrundbild
@@ -53,7 +53,8 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] Popup - Allgemeine Geräteeinstellungen
  - [ ] Popups - Kanalauswahl / Geräteauswahl usw.
  - [ ] Geräteeinstellungen / Formular-Inputs verbergen
- - [ ] auf ein Addon "umbauen"zweiter Design: "Hell"
+ - [ ] auf ein Addon "umbauen"
+ - [ ] zweites Design: "Hell"
 
 Optional:
  - [ ] als Addon?
@@ -68,6 +69,3 @@ Optional:
  ## Lizenz
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
 .
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxMjA2NTA1M119
--->

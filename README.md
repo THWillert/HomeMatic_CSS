@@ -20,9 +20,12 @@ Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU-WebUI gelad
 ### Installation
 Nach der Installation von Stylus wird die CCS-Datei in Stylus geladen:
 
-danach ist noch eine Anpassung der IP-Adressen in den einzelnen 
+hier fehlt noch ein Bild
+
+danach ist noch eine Anpassung der IP-Adressen in den einzelnen Code-Bereichen nötig.
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4NDc0NDM1NywtMTI1NDI0MjUyNV19
+eyJoaXN0b3J5IjpbMTUwNDkxNDQwNCwtMTI1NDI0MjUyNV19
 -->

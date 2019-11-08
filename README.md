@@ -31,7 +31,7 @@ Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
 *hier kommt noch ein Bild*
 
- 1. Changelog, CSS-Variablen zum einfachen Anpassen und der Stil für den Druck
+ 1. Changelog, CSS-Variablen zum einfachen npassen für den Druck
  2. Allgemeine Stile
  3. die restlichen Stile
  4. das Hintergrundbild
@@ -45,8 +45,8 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  [Homepage](http://www.thorsten-willert.de/)
 
  ## Lizenz
- Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
+ Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNzc5ODU4OV19
+eyJoaXN0b3J5IjpbLTUwMzM2OTQ5MiwxMjA3Nzk4NTg5XX0=
 -->

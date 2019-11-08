@@ -60,7 +60,8 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] Einstellungen - Unterpunkte Header
  - [ ] Popup - Allgemeine Geräteeinstellungen
  - [ ] Popups - Kanalauswahl / Geräteauswahl usw.
- - [ ] Geräteeinstellungen / In
+ - [ ] Geräteeinstellungen / Formular-Inputs verbergen
+ - [ ] Auf 
 
  ## Author
  Thorsten Willert
@@ -71,6 +72,6 @@ Die Reihenfolge entspricht keiner Priorität.
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5NjM5NzMzLDEwODAyOTQwOTMsLTE5OD
-Y4MTkxNDUsMjE0NTU3MTQwM119
+eyJoaXN0b3J5IjpbLTIxMTkyMDc5MjksMTA4MDI5NDA5MywtMT
+k4NjgxOTE0NSwyMTQ1NTcxNDAzXX0=
 -->

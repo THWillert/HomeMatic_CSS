@@ -34,8 +34,8 @@ Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
  3. die restlichen Stile
  4. das Hintergrundbild
  
- ## Diskussion
-Bitte auch die Diskussion dazu im HomeMatic-Forum beachten.
+ ## Diskussion / Vorschläge
+Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/forum/viewtopic.php?f=41&t=46033) beachten.
 
  ## Author
  Thorsten Willert
@@ -46,5 +46,5 @@ Bitte auch die Diskussion dazu im HomeMatic-Forum beachten.
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzExODI5MTA2XX0=
+eyJoaXN0b3J5IjpbLTE3NDQzNDExMTNdfQ==
 -->

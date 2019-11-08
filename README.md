@@ -51,6 +51,10 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  - [ ] CSS-Variablen vervollständigen
  - [ ] Status / Geräte-Controls überarbeiten
  - [ ] Status / Gewerke
+ - [ ] Status / Räume
+ - [ ] Status / Favoriten
+ - [ ] Status / Systemprotokoll - Header
+ - [ ] Direkte Verknüpfungen
  - [ ] 
 
  ## Author
@@ -62,6 +66,6 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY4MzQ1NjksLTE5OTQ1NzQ1NTIsLTg2MT
-k2NTU1NF19
+eyJoaXN0b3J5IjpbMzY4NTIwNjM5LC0xOTk0NTc0NTUyLC04Nj
+E5NjU1NTRdfQ==
 -->

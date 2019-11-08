@@ -17,7 +17,7 @@ Stattdessen wird diese über FireFox-Addon Stylus eingebunden.
 Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU-WebUI geladen werden direkt im Browser.
 
 ### Installation
-Nach der Installation von Stylus wird die CCS-Datei in Stylus importier:
+Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
 
 *hier kommen noch Bilder*
 
@@ -47,5 +47,5 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NTU3MTQwM119
+eyJoaXN0b3J5IjpbLTE5ODY4MTkxNDUsMjE0NTU3MTQwM119
 -->

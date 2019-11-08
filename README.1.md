@@ -1,8 +1,9 @@
 # HomeMatic_CSS
-[CSS](https://de.wikipedia.org/wiki/Cascading_Style_Sheets)-Datei für die HomeMatic CCU-WebUI in Verbindung mit dem FireFox Addon Stylus.
+[CSS](https://de.wikipedia.org/wiki/Cascading_Style_SDatei für die HomeMatic CCU erbindung mit dem FireFox Addon Stylus.
 
 ## Übersicht
-Ein modernes Design:
+Ein
+Die modernes Design:
 
 ![WebUI Neu](/images/WebUI_Neues_Design_1_sm.png)
 
@@ -19,23 +20,27 @@ Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU geladen wer
 ### Installation
 Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
 
-![WebUI Original](/images/HomeMatic_CSS__Stylus_bearbeiten.png)
+![WebUI Original](/images/HomeMatic_CSS__Stylus_bearbeitg)n noch Bil noch Bil:
 
-*hier kommen noch Bilder*
+e meoclgen nomeilCSS-Variablen.png)
 
-danach ist noch eine Anpassung der IP-Adressen, auf die IP bzw. URL der CCU, in den einzelnen Code-Bereichen nötig:
+der*
 
-![WebUI Original](/images/HomeMatic_CSS__Gilt_fuer.png)
+danach ist eine Anpassung der IP-Adressen, auf die IP bzw. URL der CCU, in den einzelnen Code-Bereichen nötig:
+
+![WebUI Original](/images/HomeMatic_CSS__Gilt_fuer.png).
 
 Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf [YouTube](https://www.youtube.com/watch?v=nxAQbJ4O01g)
 
 ### Anpassungen
 Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
- 1. Changelog, CSS-Variablen zum einfachen Anpassen und den Druck ![WebUI Original](/images/HomeMatic_CSS__CSS-Variablen.png)![WebUI Original](/images/HomeMatic_CSS__Print.png)
- 3. Allgemeine Stile
- 4. die restlichen Stile
- 5. das Hintergrundbild
+![WebUI Original](/images/HomeMatic_CSS__CSS-Varia
+
+ 1. Changelog, CSS-Variablen zum einfachen npassen ue nd den Drue ndetiren rck ![WebUI Original](/images/HomeMatic_CSS__CSS-Variablen.png)![WebUI Original](/images/HomeMatic_CSS__Print.png)
+ 32. Allgemeine Stile
+ . de restlichen Stile
+ . ds Hintergrundbild
  
  ## Diskussion / Vorschläge
 Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/forum/viewtopic.php?f=41&t=46033) beachten.
@@ -46,6 +51,10 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  - [ ] CSS-Variablen vervollständigen
  - [ ] Status / Geräte-Controls überarbeiten
  - [ ] Status / Gewerke
+ - [ ] Status / Räume
+ - [ ] Status / Favoriten
+ - [ ] Status / Systemprotokoll - Header
+ - [ ] Direkte Verknüpfungen
  - [ ] 
 
  ## Author
@@ -54,9 +63,9 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
  [Homepage](http://www.thorsten-willert.de/)
 
  ## Lizenz
- Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE) Lizenz.
+ Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1ODg0Nzg5NywxMDgwMjk0MDkzLC0xOT
-g2ODE5MTQ1LDIxNDU1NzE0MDNdfQ==
+eyJoaXN0b3J5IjpbMzY4NTIwNjM5LDEwODAyOTQwOTMsLTE5OD
+Y4MTkxNDUsMjE0NTU3MTQwM119
 -->

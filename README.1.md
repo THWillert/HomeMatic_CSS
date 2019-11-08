@@ -1,5 +1,5 @@
 # HomeMatic_CSS
-[CSS](https://de.wikipedia.org/wiki/Cascading_Style_Sheets)-Datei für die HomeMatic CCU erbindung mit dem FireFox Addon Stylus.
+[CSS](https://de.wikipedia.org/wiki/Cascading_Style_Sheets)-Datei für die HomeMatic CCU in Verbindung mit dem FireFox Addon Stylus.
 
 ## Übersicht
 Ein modernes Design:
@@ -30,8 +30,6 @@ Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf
 ### Anpassungen
 Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
 
-![WebUI Original](/images/HomeMatic_CSS__CSS-Varia
-
  1. Changelog, CSS-Variablen zum einfachen npassen ue nd den Drue ndetiren rck ![WebUI Original](/images/HomeMatic_CSS__CSS-Variablen.png)![WebUI Original](/images/HomeMatic_CSS__Print.png)
  32. Allgemeine Stile
  . de restlichen Stile
@@ -59,7 +57,7 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] auf ein Addon "umbauen"zweiter Design: "Hell"
 
 Optional:
- - [ ] ?
+ - [ ] als Addon?
  - [ ] wenn es ein Addon wird: Die Geräte-Bilder durch Fotos ersetzen?
  - [ ] Auf CUx erweitern?Inputs
 
@@ -72,5 +70,5 @@ Optional:
  Das ganze steht unter der [Apache 2.0](https://github.com/THWillert/HomeMatic_CSS/blob/master/LICENSE)Lizenz.
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjY1NDI0NDY4XX0=
+eyJoaXN0b3J5IjpbMTY2MjI5NzkyNywyNjU0MjQ0NjhdfQ==
 -->

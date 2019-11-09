@@ -57,7 +57,6 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] Popup - Allgemeine Geräteeinstellungen
  - [ ] Popups - Kanalauswahl / Geräteauswahl usw.
  - [ ] Geräteeinstellungen / Formular-Inputs verbergen
- - [ ] auf ein Addon "umbauen"
  - [ ] zweites Design: "Hell"
 
 Optional:

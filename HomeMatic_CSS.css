@@ -1,11 +1,12 @@
 @-moz-document url-prefix("http://192.168.178.23/"), url-prefix("http://192.168.178.23/logout"), url-prefix("http://192.168.178.23/login") {
-/* Changes:
-	
+/* Changelog:
+
+V0.55
+    * Update für Auswahl Status/Bedienung: Räume, Gewerke 
+
 V0.54
     * Layout (Programme) für Ausdrucke angepaßt
     * Geräte Einstellungen überarbeitet
-
-https://github.com/THWillert/HomeMatic_CSS/blob/master/changelog.txt
 
 */
 
@@ -292,7 +293,8 @@ img[src="/ise/img/loading.gif"], img[src="/ise/img/ajaxload.gif"] {padding-left:
 
 
 /*  Vorläufig */
-.ButtonStatusRoomsPicSelected{ border: 2px var(--bg_medium) solid !important; }
+.ButtonStatusRoomsPic { border: 1px  var(--bg_medium) solid !important; background: var(--bg_light)}
+.ButtonStatusRoomsPicSelected { border: 1px; background: var(--bg_light)}
 
 td { padding: 0.25em !important}
 

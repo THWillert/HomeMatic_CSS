@@ -48,8 +48,8 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] Anleitung vervollständigen
  - [ ] CSS-Variablen vervollständigen
  - [ ] Status / Geräte-Controls überarbeiten
- - [ ] Status / Gewerke
- - [ ] Status / Räume
+ - [X] Status / Gewerke
+ - [X] Status / Räume
  - [ ] Status / Favoriten
  - [ ] Status / Systemprotokoll - Header
  - [ ] Direkte Verknüpfungen

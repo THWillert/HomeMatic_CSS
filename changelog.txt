@@ -1,3 +1,6 @@
+V0.55
+    * Update für Auswahl Status/Bedienung: Räume, Gewerke 
+
 V0.54
     * Layout (Programme) für Ausdrucke angepaßt
     * Geräte Einstellungen überarbeitet

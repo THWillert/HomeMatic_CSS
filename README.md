@@ -28,7 +28,7 @@ danach ist eine Anpassung der IP-Adressen, auf die IP bzw. URL der CCU, in den e
 
 ![IP](/images/HomeMatic_CSS__Gilt_fuer.png).
 
-Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf [YouTube](https://www.youtube.com/watch?v=nxAQbJ4O01g)
+> Hierzu noch ein schönes Video von [Verdrahtet](https://www.verdrahtet.info) auf [YouTube](https://www.youtube.com/watch?v=nxAQbJ4O01g)
 
 ### Anpassungen
 Nach dem Import sieht man in Stylus mehrere Code-Bereiche:

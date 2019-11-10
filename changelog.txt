@@ -1,3 +1,6 @@
+V0.56 (10.11.2019)
+    * Update Status/Bedienung: Control 
+
 V0.55
     * Update für Auswahl Status/Bedienung: Räume, Gewerke 
 

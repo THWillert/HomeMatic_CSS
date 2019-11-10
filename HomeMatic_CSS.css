@@ -1,12 +1,15 @@
 @-moz-document url-prefix("http://192.168.178.23/"), url-prefix("http://192.168.178.23/logout"), url-prefix("http://192.168.178.23/login") {
-/* Changelog:
+/*
+Homepage: 
+https://github.com/THWillert/HomeMatic_CSS
+
+Changelog:
+
+V0.56 (10.11.2019)
+    * Update Status/Bedienung: Control 
 
 V0.55
     * Update für Auswahl Status/Bedienung: Räume, Gewerke 
-
-V0.54
-    * Layout (Programme) für Ausdrucke angepaßt
-    * Geräte Einstellungen überarbeitet
 
 */
 
@@ -828,6 +831,8 @@ div[id^="btn-user"], #btnLogin, /* login */
 .CLASS20908,
 .CLASS20910,
 .CLASS21108,
+.CLASS02545,
+j_translate ControlBtnOff,
 .StdButtonBig,
 .YesNoDialog_noButton,
 .Messages,
@@ -937,6 +942,7 @@ input[type=file],
 
 /* button hinter Thermostat up /down*/
 .CLASS02530,
+.PercBtn,
 .CLASS02529 div[id^="button"] {
 	background-color: transparent !important;
 	border: 0px;
@@ -946,7 +952,7 @@ input[type=file],
 }
 
 /* Vorläufig: Up/Down/Enter */
-.CLASS02548 {background: linear-gradient( to bottom, var(--dark_01), var(--dark_00) ) !important;}
+.CLASS02548, .CLASS02544 {background: linear-gradient( to bottom, var(--dark_01), var(--dark_00) ) !important;}
 .CLASS02543 { border: 1px solid var(--border_dark) !important;  mix-blend-mode: multiply; padding: 3px; border-radius: 0.25em; margin: 3px}
 .CLASS02543:hover {box-shadow: 0px 0px 15px 0px var(--hover_color); background: linear-gradient( to bottom, var(--dark_02), var(--dark_03) ) !important; mix-blend-mode: lighten;}
 /* ---------------------------------------------------------------------------------- */
@@ -1002,7 +1008,8 @@ div.UIButton:nth-child(11), div.UIButton:nth-child(10) { background-color: trans
 .CLASS05202,
 .CLASS06408,
 .CLASS04109,
-.CLASS04211 {
+.CLASS04211,
+.CLASS02545 j_translate ControlBtnOff{
 	background: linear-gradient(to bottom, var(--light_00), var(--light_01) ) !important;
 	border: 0px !important;
 }

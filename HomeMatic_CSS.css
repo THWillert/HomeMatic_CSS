@@ -1,15 +1,19 @@
 @-moz-document url-prefix("http://192.168.178.23/"), url-prefix("http://192.168.178.23/logout"), url-prefix("http://192.168.178.23/login") {
-/*
-Homepage: 
+/* Homepage: 
+
 https://github.com/THWillert/HomeMatic_CSS
 
 Changelog:
+
+V0.56.1 (15.11.2019)
+    * Korrektur Tabellen-Header
 
 V0.56 (10.11.2019)
     * Update Status/Bedienung: Control 
 
 V0.55
     * Update für Auswahl Status/Bedienung: Räume, Gewerke 
+
 
 */
 
@@ -302,6 +306,7 @@ img[src="/ise/img/loading.gif"], img[src="/ise/img/ajaxload.gif"] {padding-left:
 td { padding: 0.25em !important}
 
 .filterTable td { height: auto !important}
+.CLASS03000 th { height: auto !important}
 .CLASS05211 {white-space: nowrap !important} /* checkbox + text */
 /* Alarm, Rauchmelder, Vorschau, Geräteliste ---------------------------------------------------------------------- */
 
@@ -489,6 +494,8 @@ body {
 }
 
 
+.pt11 {padding-top: 0px}
+
 td,
 th {
 	border-color: var(--border_dark) !important;
@@ -496,7 +503,7 @@ th {
 }
 .filterTable th:first-of-type,
 .CLASS04101 tr {
-	height: 4em !important;
+height: 4em !important;
 	vertical-align: middle;
 }
 .filterTable th.Filter,
@@ -673,6 +680,7 @@ h1 u {
 .CLASS04900,
 .CLASS01807,
 .CLASS03304,
+.CLASS03300,
 .CLASS03302,
 .CLASS03303,
 .CLASS03501,

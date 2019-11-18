@@ -38,6 +38,12 @@ Nach dem Import sieht man in Stylus mehrere Code-Bereiche:
  3. die restlichen Stile
  4. das Hintergrundbild
  
+ ### Drucken
+ Für einen Ausdruck werden per CSS die Kopf- und Fußzeilen der Seite ausgeblendet, sowie alles auf schwarz / weiß gesetzt.
+ 
+ Um ein sauberes Ergebnis zu bekommen, sollten in den Druckeinstellungen von FireFox zusätzlich "Hintergrund drucken" deaktiviert werden:
+ ![Druck Einstellungen](/images/HomeMatic_CSS__CSS-Variablen_print_1.png)
+ 
  ## Diskussion / Vorschläge
 Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/forum/viewtopic.php?f=41&t=46033) beachten.
 

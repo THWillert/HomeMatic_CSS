@@ -1,3 +1,9 @@
+V0.56.2 (20.11.2019)
+    * Korrektur Header Systemprotokoll
+
+V0.56.1 (15.11.2019)
+    * Korrektur Tabellen-Header
+
 V0.56 (10.11.2019)
     * Update Status/Bedienung: Control 
 

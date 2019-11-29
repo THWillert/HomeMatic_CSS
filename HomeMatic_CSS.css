@@ -5,6 +5,9 @@ https://github.com/THWillert/HomeMatic_CSS
 
 Changelog:
 
+V0.56.3 (29.11.2019)
+    * Hintergrund korrigiert: Auto / Manu - z.B. Steckdosen
+
 V0.56.2 (20.11.2019)
     * Korrektur Header Systemprotokoll
 
@@ -708,6 +711,7 @@ h1 u {
 .Sort,
 .filterTable th,
 .thCell,
+#anchor_5210,
 #menubarmenu #header,
 #footer {
 	background-color: var(--bg_medium) !important;

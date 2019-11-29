@@ -711,7 +711,7 @@ h1 u {
 .Sort,
 .filterTable th,
 .thCell,
-#anchor_5210,
+div[id^="anchor_"],
 #menubarmenu #header,
 #footer {
 	background-color: var(--bg_medium) !important;

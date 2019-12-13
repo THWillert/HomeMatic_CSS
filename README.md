@@ -10,12 +10,12 @@ für die etwas in die Jahre gekommene Oberfläche der HomeMatic WebUI:
 
 ![WebUI Original](/images/WebUI_Original_sm.png)
 
-### Voraussetzungen
+## Voraussetzungen
 Die CSS-Datei benötigt  _keine_ Installation auf der CCU.
 Stattdessen wird diese über FireFox-Addon [Stylus](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) eingebunden.
 Dieses "überschreibt" die vorhandenen Style-Sheets, die von der CCU geladen werden, direkt im Browser.
 
-### Installation
+## Installation
 Nach der Installation von Stylus wird die CCS-Datei in Stylus importiert:
 
 ![Bearbeiten](/images/HomeMatic_CSS__Stylus_bearbeiten.png)

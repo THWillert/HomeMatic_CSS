@@ -52,6 +52,7 @@ Bitte auch die Diskussion dazu im [HomeMatic-Forum](https://homematic-forum.de/f
 
 Die Reihenfolge entspricht keiner Priorität.
 
+ - [ ] Button "Geräte löschen" korrigieren
  - [ ] Anleitung vervollständigen
  - [ ] CSS-Variablen vervollständigen
  - [x] Status / Geräte-Controls überarbeiten

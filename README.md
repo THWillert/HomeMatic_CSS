@@ -56,7 +56,7 @@ Die Reihenfolge entspricht keiner Priorität.
  - [ ] Anleitung vervollständigen
  - [ ] CSS-Variablen vervollständigen
  - [x] Status / Geräte-Controls überarbeiten
- - [ ] Status / Geräte: Modus Auto / Manu 
+ - [x] Status / Geräte: Modus Auto / Manu 
  - [X] Status / Gewerke
  - [X] Status / Räume
  - [ ] Status / Favoriten

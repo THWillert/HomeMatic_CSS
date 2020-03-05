@@ -1,3 +1,6 @@
+05.03.2020
+ * added minified version
+
 V0.56.2 (20.11.2019)
     * Korrektur Header Systemprotokoll
 
